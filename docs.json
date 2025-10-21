@@ -31,7 +31,8 @@
           "group": "Core Features",
           "pages": [
             "features/collateral",
-            "features/documentGeneration"
+            "features/documentGeneration",
+            "features/epics"
           ]
         }
       ]
