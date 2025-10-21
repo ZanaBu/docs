@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "willow",
-  "name": "Lovable",
+  "name": "ProgramGenie",
   "colors": {
-    "primary": "#0095ff",
-    "light": "#0095ff",
-    "dark": "#0095ff"
+    "primary": "#6C63FF",
+    "light": "#FF4081",
+    "dark": "#FFA400"
   },
   "favicon": "/favicon.svg",
   "navigation": {
