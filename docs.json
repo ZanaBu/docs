@@ -36,6 +36,17 @@
           ]
         }
       ]
+    },
+    {
+      "tab": "Integrations",
+      "groups": [
+        {
+          "group": "Integrations",
+          "pages": [
+            "integrations/image_integrations"
+          ]
+        }
+      ]
     }
   ],
   "global": {
