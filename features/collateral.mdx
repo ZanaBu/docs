@@ -1,94 +1,35 @@
 ---
 title: "Collateral"
-description: "Learn about Lovable and how to get started"
+description: "Display inline code and code blocks"
+icon: "code"
 ---
-<iframe
-  className="w-full aspect-video rounded-xl"
-  src="https://www.youtube.com/embed/xDwR1_vrIg8"
-  title="YouTube video player"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-></iframe>
 
-Lovable is an AI-powered platform that enables users of any skill level to create full-stack websites through natural language. Simply describe what you want, and Lovable builds it for you.
+## Inline code
 
-<Columns cols={3}>
-  <Card
-    title="Getting Started"
-    icon="stairs"
-    href="/gettingStarted"
-  >
-  Step-by-step tutorial to create your first project.
-  </Card>
-  <Card
-    title="Features"
-    icon="heart"
-    href="#"
-  >
-    Lovable's core features.
-  </Card>
-    <Card
-    title="Integrations"
-    icon="map"
-    href="#"
-  >
-   Extend functionality with integrations.
-  </Card>
-  <Card
-    title="Tips & Tricks"
-    icon="terminal"
-    href="#"
-  >
-   Get the most out of Lovable.
-  </Card>
-    <Card
-    title="Prompt Engineering"
-    icon="house"
-    href="#"
-  >
-   Learn effective prompting strategies.
-  </Card>
-    <Card
-    title="Use Cases"
-    icon="thumbs-up"
-    href="#"
-  >
-   See video tutorials and what others have built.
-  </Card>
-    <Card
-    title="Glossarry"
-    icon="x"
-    href="#"
-  >
-   Learn the Key Terms
-  </Card>
-    <Card
-    title="Launched"
-    icon="file"
-    href="#"
-  >
-  Compete for free credits every week!
-  </Card>
-    <Card
-    title="Affiliate program"
-    icon="truck"
-    href="#"
-  >
-  Refer users and recieve a commission.
-  </Card>
-    <Card
-    title="Partner program"
-    icon="camera"
-    href="#"
-  >
-   Hire one of our partners to get help.
-  </Card>
-    <Card
-    title="Community"
-    icon="discord"
-    href="#"
-  >
-   Join our Lovable community on Discord.
-  </Card>
-</Columns>
+To denote a `word` or `phrase` as code, enclose it in backticks (\`).
+
+## Code blocks
+
+Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+```
+To denote a `word` or `phrase` as code, enclose it in backticks (`).
+```
+
+````md
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+````
