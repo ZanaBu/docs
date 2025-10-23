@@ -18,6 +18,8 @@ With ProgramGenie integration, all generated requirements, stories, and test cas
 
 In short: **Genie creates, Jira organizes — together, they deliver.**
 
+<Tooltip tip="Application Programming Interface: a set of protocols for software applications to communicate." cta="Read our API guide" href="/api-reference">API</Tooltip> documentation helps developers understand how to integrate with your service.
+
 ## Key Benefits of Jira Integration
 
 The Jira integration unlocks several powerful advantages that streamline delivery, enhance collaboration, and ensure every project stays accurate and up to date:
@@ -29,9 +31,11 @@ The Jira integration unlocks several powerful advantages that streamline deliver
 - **Visibility & Governance:** Managers and stakeholders can track all generated artefacts, progress, and quality metrics directly inside Jira. Genie's structured artefacts make sprint planning and reporting easier and more accurate.
 - **Change Management:**  When a client requests a change — for example, "Change the app's color bar to blue" — Genie updates every related artefact automatically and syncs those changes to Jira instantly. Developers, testers, and managers see the update in seconds, maintaining alignment and reducing risk.
 
-## Connecting ProgramGenie to Jira
+## Connecting ProgramGenie to Jira (Setup guide)
 
-<video controls className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/4KzFe50RQkQ" />
+<iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/4KzFe50RQkQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+
+To start using ProgramGenie with Jira, you need to connect your Jira account and connect it to ProgramGenie platform. Here's how to set it up:
 
 <Steps>
   <Step title="Integration">
@@ -44,7 +48,7 @@ The Jira integration unlocks several powerful advantages that streamline deliver
     Optionally, describe the purpose of this connector instance.
   </Step>
   <Step title="Domain">
-    Your Atlassian domain, for example https://my-domain.atlassian.net.
+    Your Atlassian domain.
   </Step>
   <Step title="Token">
     The Jira authentication token is used together with the email address to authorize ProgramGenie. How to generate the token?
@@ -123,10 +127,10 @@ Here are some frequently asked questions and common issues with the Jira connect
 
 <AccordionGroup>
   <Accordion title="Why does ProgramGenie need my Jira API token?">
-   The API token is a secure way for ProgramGenie to communicate with Jira without storing your password. It allows Genie to create, update, and manage issues in your Jira workspace safely.
+    The API token is a secure way for ProgramGenie to communicate with Jira without storing your password. It allows Genie to create, update, and manage issues in your Jira workspace safely.
   </Accordion>
   <Accordion title="Can multiple users connect the same Jira project to ProgramGenie?">
-  Yes, but each user must connect using their own Jira account and API token to maintain proper permissions and traceability.
+    Yes, but each user must connect using their own Jira account and API token to maintain proper permissions and traceability.
   </Accordion>
   <Accordion title="What happens when the token expires?">
     ProgramGenie will stop syncing with Jira until a new token is generated and updated in the connector. You’ll see a “Connection expired” message in the Genie dashboard.
@@ -140,7 +144,7 @@ Here are some frequently asked questions and common issues with the Jira connect
   <Accordion title="What Jira permissions do I need?">
     You need permission to create, edit, and comment on issues within the target Jira project. If unsure, contact your Jira administrator.
   </Accordion>
-    <Accordion title="Can I disconnect or change the Jira account later?">
+  <Accordion title="Can I disconnect or change the Jira account later?">
     Yes. You can disconnect anytime from the ProgramGenie settings and reconnect using a different Jira account or site.
   </Accordion>
 </AccordionGroup>
