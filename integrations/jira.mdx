@@ -65,18 +65,80 @@ In short: **Genie creates, Jira organizes — together, they deliver.**
   </Step>
 </Steps>
 
-## Troubleshooting & FAQ (Jira Connector)
+## Troubleshooting (Jira Connector)
 
 Here are some frequently asked questions and common issues with the Jira connector, along with steps to help you resolve them. Click on a question to see the answer.
 
 <AccordionGroup>
-  <Accordion title="Getting started">
-    You can put other components inside Accordions.
+  <Accordion title="My Jira connection fails when I try to connect ProgramGenie.">
+    **Cause:** This usually happens if the email or API token is incorrect, expired, or doesn’t match the Jira account.
+
+    **Solution:**
+
+    - Verify that the email entered in ProgramGenie is the same one used to generate the Jira API token.
+    - Check that the token hasn’t expired. If it has, create a new one in Jira → Profile → Account settings → Security → API Tokens.
+    - Make sure there are no extra spaces when pasting the token.
   </Accordion>
-  <Accordion title="Advanced features" icon="alien-8bit">
-    Add icons to make accordions more visually distinct and scannable.
+  <Accordion title="I see an “Unauthorized” or “401” error.">
+    **Cause:** Jira is rejecting the authentication credentials.
+
+    **Solution:**
+
+    - Ensure the API token belongs to the same user account as the email entered.
+    - Confirm that the user has the correct Jira permissions (read/write access to the project).
+    - Try re-generating the API token and reconnect.
   </Accordion>
-  <Accordion title="Troubleshooting">
-    Keep related content organized into groups.
+  <Accordion title="My project connected successfully, but artefacts aren’t appearing in Jira.">
+    **Cause:** Incorrect project mapping or missing permissions. **Solution:**
+
+    - Check that the selected Jira project key matches the one you want to sync with.
+    - Make sure the user account used by the connector has create issue permission in Jira.
+    - Re-sync the project from ProgramGenie.
+  </Accordion>
+  <Accordion title="Changes made in ProgramGenie aren’t updating in Jira.">
+    **Cause:** The auto-sync process might be paused or the Jira API rate limit reached. **Solution:**
+
+    - Wait a few minutes and click “Resync” in ProgramGenie.
+    - If the issue persists, disconnect and reconnect the Jira integration.
+    - For large projects, sync may take a few minutes to complete.
+  </Accordion>
+  <Accordion title="I can’t find the Jira project I want to connect.">
+    **Cause:** The connected user may not have access to that project or it’s in a different workspace. **Solution:**
+
+    - Verify your Jira account has access to the project.
+    - Ensure you’re selecting the correct Jira site (if your organization has multiple).
+    - Ask your Jira administrator to grant project access.
+  </Accordion>
+  <Accordion title="My token stopped working suddenly.">
+    **Cause:** The token expired or was revoked in Jira. **Solution:**
+
+    - Go to Jira → Profile → Security → API Tokens → Create and Manage Tokens and generate a new one.
+    - Replace the old token in ProgramGenie’s Jira connector settings.
+  </Accordion>
+</AccordionGroup>
+
+## FAQ (Jira Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my Jira API token?">
+   The API token is a secure way for ProgramGenie to communicate with Jira without storing your password. It allows Genie to create, update, and manage issues in your Jira workspace safely.
+  </Accordion>
+  <Accordion title="Can multiple users connect the same Jira project to ProgramGenie?">
+  Yes, but each user must connect using their own Jira account and API token to maintain proper permissions and traceability.
+  </Accordion>
+  <Accordion title="What happens when the token expires?">
+    ProgramGenie will stop syncing with Jira until a new token is generated and updated in the connector. You’ll see a “Connection expired” message in the Genie dashboard.
+  </Accordion>
+  <Accordion title="Does ProgramGenie change or delete existing Jira issues?">
+    No. ProgramGenie only creates and updates issues it generates. It won’t alter unrelated Jira tickets or delete anything without confirmation.
+  </Accordion>
+  <Accordion title="How often does ProgramGenie sync with Jira?">
+    ProgramGenie performs automatic syncs in near real time. You can also trigger a manual sync anytime through the connector settings.
+  </Accordion>
+  <Accordion title="What Jira permissions do I need?">
+    You need permission to create, edit, and comment on issues within the target Jira project. If unsure, contact your Jira administrator.
+  </Accordion>
+    <Accordion title="Can I disconnect or change the Jira account later?">
+    Yes. You can disconnect anytime from the ProgramGenie settings and reconnect using a different Jira account or site.
   </Accordion>
 </AccordionGroup>
