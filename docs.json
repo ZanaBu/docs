@@ -84,7 +84,7 @@
       "tab": "Glossary",
       "groups": [
         {
-          "group": "Glossary",
+          "group": "glossary",
           "pages": [
             "glossary.mdx"
           ]
