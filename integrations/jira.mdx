@@ -29,33 +29,24 @@ In short: **Genie creates, Jira organizes — together, they deliver.**
 
 ## Connecting ProgramGenie to Jira
 
-<video
-  controls
-  className="w-full aspect-video rounded-xl"
-  src="link-to-your-video.com"
-></video>
+<video controls className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/4KzFe50RQkQ" />
 
 <Steps>
-
   <Step title="Integration">
     Select the product that ProgramGenie is to be integrated with — in this case, Jira.
   </Step>
-
   <Step title="Name">
     Create a unique name for this connector instance.
   </Step>
-
   <Step title="Description">
     Optionally, describe the purpose of this connector instance.
   </Step>
-
   <Step title="Domain">
     Your Atlassian domain, for example https://my-domain.atlassian.net.
   </Step>
-
   <Step title="Token">
     The Jira authentication token is used together with the email address to authorize ProgramGenie. How to generate the token?
-    
+
     - The email address and the API token together identify and authorize the Jira account that ProgramGenie will use.
     - You (the Jira user) must generate the token yourself inside Jira — it’s like creating a temporary password specifically for ProgramGenie.
     - To generate it, follow these steps.
@@ -66,15 +57,12 @@ In short: **Genie creates, Jira organizes — together, they deliver.**
     - You copy that token and paste it into ProgramGenie’s Jira connector screen (alongside your Jira email).
     - From that moment, ProgramGenie can securely read/write Jira data until the token expires.
   </Step>
-
   <Step title="Email">
     Enter the Jira user’s email (usually the project lead). It must be the same user who generated the token and must have write access to create, edit, and delete Epics & Stories.
   </Step>
-
   <Step title="Project Key">
     Provide a maximum ten-character alphanumeric key. Jira uses this as the prefix for issue keys (e.g., “ABCD” → “ABCD-23”). Use the existing project’s key, or a new unique key to have ProgramGenie create a project automatically.
   </Step>
-
 </Steps>
 
 ## Troubleshooting & FAQ (Jira Connector)
