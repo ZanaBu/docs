@@ -64,8 +64,25 @@
           ]
         }
       ]
+    },
+    {
+      "tab": "Tips and Tricks",
+      "groups": [
+        {
+          "group": "Tips and Tricks",
+          "pages": [
+            "tipstricks/welcome_tipstricks",
+            "tipstricks/best-practices",
+            "tipstricks/troubleshooting",
+            "tipstricks/dos-and-donts",
+            "tipstricks/working-with-collateral",
+            "tipstricks/responsible-use"
+          ]
+        }
+      ]
     }
   ],
+    
   "global": {
     "anchors": [
       {
