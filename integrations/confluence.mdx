@@ -1,5 +1,167 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Confluence Connector"
+description: "Connect ProgramGenie with Atlassian Confluence to automatically publish generated artefacts, briefs, and documentation to your workspace."
+icon: "confluence"
 ---
 
+## What is Confluence
+Confluence is Atlassian’s collaborative documentation and knowledge-management platform — used by teams to plan, document, and share project information in one centralized space.
+
+With ProgramGenie integration, all generated artefacts — from project briefs and epics to user stories and test documentation — can be automatically published to your Confluence workspace, ensuring that every stakeholder has real-time access to the latest project information.
+
+### TL;DR:
+- **Confluence** is a content collaboration tool used to create and organize documentation across teams.  
+- **ProgramGenie** automatically generates structured artefacts (briefs, epics, user stories, test cases, and diagrams) and syncs them directly into Confluence.  
+- **Confluence integration** ensures your documentation stays consistent, versioned, and accessible in real time — no copy-paste, no missed updates.
+
+In short: **Genie creates, Confluence publishes — together, they document.**
+
+<Info>Before connecting, make sure you have access to Atlassian Confluence Cloud and permission to create and edit pages within your target space.</Info>
+
+---
+
+## Key Benefits of Confluence Integration
+The Confluence connector bridges ProgramGenie’s structured generation with Confluence’s publishing capabilities.
+
+- **Automatic Publishing:** Generated artefacts in Genie — like briefs, epics, and test summaries — can be instantly pushed to Confluence pages within your chosen space.
+- **Consistent Documentation:** Every change in ProgramGenie can update the corresponding Confluence page automatically, keeping your documentation perfectly in sync.
+- **Improved Collaboration:** Product owners, analysts, and QA engineers can work within Confluence while Genie keeps all the content up to date.
+- **Organized Spaces:** Genie maintains the hierarchy of artefacts (project → epic → story → test) directly within your Confluence structure.
+- **Audit & Compliance:** Full history and traceability between ProgramGenie artefacts and Confluence pages ensure easier audits and documentation reviews.
+- **Faster Onboarding:** New team members can immediately find the latest requirements and design briefs in Confluence, without searching through multiple tools.
+
+---
+
+## Connecting ProgramGenie to Confluence (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/j1AqykTUIkA"
+  title="ProgramGenie Confluence Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+To start using ProgramGenie with Confluence, you’ll need to configure the connector in Genie using your Confluence Cloud credentials.
+
+<Steps>
+  <Step title="Integration">
+    Select **Confluence** as the product to integrate with ProgramGenie.
+  </Step>
+  <Step title="Name">
+    Create a unique and descriptive name for this connector instance (e.g., “Confluence – Product Documentation”).
+  </Step>
+  <Step title="Description">
+    Optionally, describe the purpose of this connector instance (e.g., “Publishes Genie project artefacts to Product Space”).
+  </Step>
+  <Step title="Domain">
+    Enter your Atlassian Confluence Cloud domain — for example: https://your-domain.atlassian.net/wiki.
+  </Step>
+  <Step title="Token">
+    The Confluence API token is used with your Atlassian account email to authenticate ProgramGenie.  
+    Follow these steps to generate one:
+
+    - Go to your Atlassian profile → **Account settings → Security → API tokens**.
+    - Click **Create API token** and give it a recognizable name (e.g., “ProgramGenie Confluence Integration”).
+    - Copy the generated token and keep it secure.
+    - Paste the token into ProgramGenie’s Confluence connector screen, along with your Atlassian email address.
+
+    <Info>**Important:** API tokens are personal and cannot be shared. Each user connecting Confluence should use their own token. If the token expires or is deleted, ProgramGenie will lose access until you add a new one.</Info>
+
+    <Note>**Tip:** Use descriptive names and expiry schedules for tokens (e.g., “Confluence Integration – 90 days”) to simplify maintenance and ensure security.</Note>
+  </Step>
+  <Step title="Email">
+    Enter the Atlassian account email associated with the generated API token.  
+    This must belong to a user who has permission to create and edit pages in the target Confluence space.
+
+    <Warning>**Note:** The email entered must match the account used to generate the token. Using a different account will cause an “Unauthorized” error during connection.</Warning>
+  </Step>
+  <Step title="Space Key">
+    Provide the **Confluence Space Key** where Genie will publish content (for example, “PROD”, “DOCS”, or “QA”).  
+    ProgramGenie will automatically create new pages within this space based on your project structure.
+  </Step>
+</Steps>
+
+---
+
+## Troubleshooting (Confluence Connector)
+
+<AccordionGroup>
+  <Accordion title="My Confluence connection fails when I try to connect ProgramGenie.">
+    **Cause:** Usually happens when the email or API token is invalid, expired, or doesn’t belong to a Confluence Cloud account.
+
+    **Solution:**
+    - Verify the Atlassian email matches the one used to create the API token.
+    - Regenerate the token if it’s expired or revoked.
+    - Check your Confluence permissions (you need “Create and Edit” access to the target space).
+  </Accordion>
+
+  <Accordion title="I see an 'Unauthorized' or '401' error.">
+    **Cause:** Authentication mismatch or invalid API credentials.
+
+    **Solution:**
+    - Confirm that the API token and email belong to the same Atlassian account.
+    - Ensure the account has the correct space permissions.
+    - Try creating a new token and reconnecting.
+  </Accordion>
+
+  <Accordion title="Pages are not appearing in Confluence after syncing.">
+    **Cause:** Incorrect Space Key or insufficient permissions.
+
+    **Solution:**
+    - Check that the Space Key entered in Genie matches an existing Confluence space.
+    - Make sure your user account can create pages within that space.
+    - Try re-syncing from the Genie connector panel.
+  </Accordion>
+
+  <Accordion title="Formatting looks wrong after publishing to Confluence.">
+    **Cause:** Confluence converts Markdown/HTML elements differently.
+
+    **Solution:**
+    - Use standard Markdown and avoid custom components.
+    - Re-publish the artefact — Genie will re-render the formatting.
+  </Accordion>
+
+  <Accordion title="The connector suddenly stopped syncing.">
+    **Cause:** The token expired or was manually revoked in Atlassian.
+
+    **Solution:**
+    - Generate a new API token in Atlassian and replace it in Genie.
+    - Reconnect the integration in the ProgramGenie dashboard.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (Confluence Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my Confluence API token?">
+    The API token allows ProgramGenie to securely create and update pages in your Confluence space without storing your password.
+  </Accordion>
+
+  <Accordion title="Can multiple users publish to the same Confluence space?">
+    Yes, multiple users can connect using their own tokens. ProgramGenie will manage page ownership and attribution automatically.
+  </Accordion>
+
+  <Accordion title="What happens when my token expires?">
+    ProgramGenie will temporarily stop syncing until you update your connector with a new API token.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie overwrite existing Confluence pages?">
+    No. Genie only updates pages it created. Existing manual pages remain untouched.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with Confluence?">
+    Syncs occur in near real-time after artefacts are generated or updated. You can also trigger a manual sync anytime.
+  </Accordion>
+
+  <Accordion title="What Confluence permissions do I need?">
+    You need permission to create, edit, and comment on pages in the target space. If unsure, contact your Confluence administrator.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or switch the Confluence account later?">
+    Yes. You can disconnect or reconfigure the connector anytime in ProgramGenie’s settings.
+  </Accordion>
+</AccordionGroup>

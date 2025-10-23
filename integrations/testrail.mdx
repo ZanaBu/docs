@@ -1,0 +1,177 @@
+---
+title: "TestRail Connector"
+description: "Integrate ProgramGenie with TestRail to manage and synchronize generated test cases, test runs, and results within your QA workflows."
+icon: "testrail"
+---
+
+## What is TestRail
+TestRail is a leading web-based test management tool that helps QA teams organize, track, and analyze testing activities.  
+By connecting **ProgramGenie** to TestRail, your generated test cases and related artefacts can be automatically published and kept in sync within your TestRail projects.
+
+This ensures consistency between design, testing, and reporting — with no manual exports or duplicated work.
+
+### TL;DR
+- **TestRail** organizes test cases, runs, and results for efficient QA management.  
+- **ProgramGenie** automatically generates structured test artefacts and syncs them to TestRail in real time.  
+- **Integration** maintains traceability between requirements, stories, and executed test cases.
+
+In short: **Genie generates, TestRail validates — together, they assure quality.**
+
+<Info>
+Before connecting, make sure you have access to your TestRail instance and permission to create or edit test cases.  
+You will also need to generate an **API Key (Token)** under your TestRail account.
+</Info>
+
+---
+
+## Key Benefits of TestRail Integration
+
+- **Seamless Test Case Sync:** Automatically push generated test cases and suites from Genie into TestRail projects.  
+- **Real-Time Updates:** Modifications in Genie (e.g., test descriptions or steps) reflect instantly in TestRail.  
+- **Traceability:** Maintain linkage from requirement → user story → test case → execution result.  
+- **Faster QA Cycles:** Eliminate the need to manually export or import cases.  
+- **Better Reporting:** Genie-generated artefacts align directly with TestRail’s run and dashboard analytics.  
+
+---
+
+## Connecting ProgramGenie to TestRail (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/l_rDT6eL6Us"
+  title="ProgramGenie TestRail Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+To connect TestRail with ProgramGenie, configure the connector as follows:
+
+<Steps>
+  <Step title="Integration">
+    Choose **TestRail** from the list of available connectors in ProgramGenie.
+  </Step>
+  <Step title="Name">
+    Create a unique name for the connector instance (e.g., “TestRail – QA Automation”).
+  </Step>
+  <Step title="Description">
+    Optionally describe this connector (e.g., “Publishes Genie-generated test cases to TestRail Project X”).
+  </Step>
+  <Step title="Domain">
+    Enter your TestRail domain — for example:  
+    `https://companyname.testrail.io` or your custom TestRail Cloud URL.
+  </Step>
+  <Step title="API Token (Key)">
+    TestRail requires a user-specific API token for secure integration.
+
+    - In TestRail, click your **User Icon → My Settings → API Keys**.  
+    - Click **Add Key** and give it a name (e.g., “ProgramGenie Integration”).  
+    - Copy the generated key.  
+    - Paste it into the **Token** field in the ProgramGenie connector screen.
+
+    <Warning>
+    **Important:** Tokens are personal credentials. If they are deleted or expired, ProgramGenie will stop syncing until a new one is added.
+    </Warning>
+
+    <Note>
+    **Tip:** Assign descriptive names to your keys (e.g., “QA Connector – 90 Days”) and review them regularly to maintain security.
+    </Note>
+  </Step>
+  <Step title="Email / Username">
+    Enter the TestRail account email used to generate the API key.  
+    This user must have permission to create and edit test cases within the selected project.
+  </Step>
+  <Step title="Project Key">
+    Provide the **Project Key** corresponding to the target TestRail project where test cases should be synced.  
+    Example: `QA01` or `WEBAPP`.
+  </Step>
+</Steps>
+
+---
+
+## Example Workflow
+
+1. Genie generates test cases automatically from your requirements or user stories.  
+2. The TestRail connector syncs these cases into your designated TestRail project.  
+3. QA teams execute the tests, record results, and track coverage within TestRail.  
+4. Updates, edits, or regenerations in Genie are automatically mirrored back to TestRail.
+
+---
+
+## Troubleshooting (TestRail Connector)
+
+<AccordionGroup>
+  <Accordion title="Connection fails when authenticating with TestRail.">
+    **Cause:** Incorrect domain, token, or email.  
+    **Solution:**
+    - Verify your TestRail URL matches your workspace (e.g., `https://company.testrail.io`).  
+    - Confirm the token and email belong to the same user.  
+    - Recreate the API key if necessary.
+  </Accordion>
+
+  <Accordion title="I get a '401 Unauthorized' or 'Forbidden' error.">
+    **Cause:** Invalid credentials or missing permissions.  
+    **Solution:**
+    - Ensure the TestRail user has API access enabled.  
+    - Check that the API key is still active.  
+    - If using SSO, ensure API access is allowed for your account.
+  </Accordion>
+
+  <Accordion title="Test cases are not appearing in TestRail.">
+    **Cause:** Wrong Project Key or restricted permissions.  
+    **Solution:**
+    - Verify that the project key exists and is active in TestRail.  
+    - Make sure the connected user has permission to add test cases.  
+    - Re-sync the connector.
+  </Accordion>
+
+  <Accordion title="Changes in Genie are not updating in TestRail.">
+    **Cause:** Token expired or sync paused.  
+    **Solution:**
+    - Generate a new API key and update the connector.  
+    - Click **Resync** in Genie’s connector panel.
+  </Accordion>
+
+  <Accordion title="Test runs are not updating correctly.">
+    **Cause:** TestRail run IDs not linked correctly.  
+    **Solution:**
+    - Check that the TestRail run is active.  
+    - Refresh the mapping in Genie and resync results.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (TestRail Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my TestRail API key?">
+    The API key allows Genie to securely create, update, and synchronize test cases in your TestRail workspace without storing your password.
+  </Accordion>
+
+  <Accordion title="Can multiple users connect to the same TestRail project?">
+    Yes, but each user should connect using their own TestRail credentials and API key to maintain access control and traceability.
+  </Accordion>
+
+  <Accordion title="What happens when my token expires?">
+    ProgramGenie will stop syncing until you update the connector with a new API key.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie overwrite existing TestRail cases?">
+    No. Genie only updates the test cases it originally created — existing manual cases remain untouched.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with TestRail?">
+    Synchronization happens automatically when artefacts are created or updated.  
+    Manual syncs can also be triggered from the connector screen.
+  </Accordion>
+
+  <Accordion title="What permissions are required in TestRail?">
+    You need permission to **create, edit, and update test cases** in the target project.  
+    If you’re unsure, ask your TestRail administrator.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or switch accounts later?">
+    Yes. You can disconnect anytime in ProgramGenie settings and reconnect with a different TestRail account or token.
+  </Accordion>
+</AccordionGroup>

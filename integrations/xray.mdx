@@ -1,0 +1,177 @@
+---
+title: "Xray Connector"
+description: "Integrate ProgramGenie with Xray to synchronize generated test cases, test executions, and results within your Jira environment for complete QA visibility."
+icon: "xray"
+---
+
+## What is Xray
+**Xray** is a powerful test management app built for Jira that supports both manual and automated testing within the Atlassian ecosystem.  
+It allows QA and development teams to manage requirements, plan tests, execute runs, and track coverage — all inside Jira.
+
+With **ProgramGenie’s Xray connector**, you can automatically publish and synchronize generated test artefacts such as test cases, test plans, and results directly into Xray.  
+This ensures a seamless bridge between design, testing, and delivery activities.
+
+### TL;DR
+- **Xray** manages manual and automated test cycles in Jira.  
+- **ProgramGenie** automatically generates test cases, test runs, and results, pushing them directly into Xray.  
+- **Integration** provides real-time traceability from requirements to test execution.
+
+In short: **Genie generates, Xray validates — together, they ensure quality at scale.**
+
+<Info>
+Before connecting, ensure your Jira workspace has the Xray app installed and that you have permission to generate API keys and create issues within the target project.
+</Info>
+
+---
+
+## Key Benefits of Xray Integration
+
+- **Automatic Test Case Sync:** Instantly publish Genie-generated test cases and suites into Xray.  
+- **Real-Time Results:** Test execution results update automatically, keeping reports current.  
+- **Traceability:** Maintains a full chain from requirements and user stories to Xray test executions.  
+- **Unified QA Process:** Combine ProgramGenie’s generation with Xray’s execution and reporting.  
+- **Effortless Collaboration:** Product, QA, and engineering teams share the same test artefacts in Jira.  
+
+---
+
+## Connecting ProgramGenie to Xray (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/pRL_6qVNue0"
+  title="ProgramGenie Xray Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+Follow these steps to connect Xray to ProgramGenie.
+
+<Steps>
+  <Step title="Integration">
+    Select **Xray** from the list of available connectors in ProgramGenie.
+  </Step>
+  <Step title="Name">
+    Create a unique and descriptive name for your connector instance (e.g., “Xray – QA Validation”).
+  </Step>
+  <Step title="Description">
+    Optionally describe this connector (e.g., “Publishes Genie test artefacts to Jira Xray Project”).
+  </Step>
+  <Step title="Domain">
+    Enter your Jira/Xray domain, for example:  
+    `https://your-domain.atlassian.net`.
+  </Step>
+  <Step title="API Token">
+    Xray requires its own API Token, which you can generate within your Xray account.
+
+    - In Jira, go to **Apps → Manage Your Apps → Xray → API Keys**.  
+    - Click **Create API Key**.  
+    - Give the key a descriptive name (e.g., “ProgramGenie Integration”) and click **Create**.  
+    - Copy both the **Client ID** and **Client Secret** displayed.  
+    - Paste them into the corresponding fields in ProgramGenie’s Xray connector setup.
+
+    <Warning>
+    **Important:** The Xray token is separate from your Jira API token.  
+    If it expires or is deleted, ProgramGenie will lose access until a new one is added.
+    </Warning>
+
+    <Note>
+    **Tip:** Store your Client ID and Secret securely and regenerate them periodically for improved security.
+    </Note>
+  </Step>
+  <Step title="Email / Username">
+    Enter the Jira account email associated with your Xray license.  
+    This must match the user that generated the Xray API credentials and has permission to create and execute tests.
+  </Step>
+  <Step title="Project Key">
+    Provide the **Project Key** for the Jira/Xray project where test cases and executions should be published (e.g., `QA01` or `MOBILE`).  
+    ProgramGenie will automatically sync generated artefacts into this project.
+  </Step>
+</Steps>
+
+---
+
+## Example Workflow
+
+1. ProgramGenie generates test cases automatically from requirements or user stories.  
+2. The Xray connector syncs them into your Jira/Xray project as Test issues.  
+3. QA executes test runs in Xray — results and statuses are updated automatically.  
+4. When test results are modified in Xray, they remain traceable to the originating artefacts in Genie.  
+
+---
+
+## Troubleshooting (Xray Connector)
+
+<AccordionGroup>
+  <Accordion title="Connection fails when setting up Xray.">
+    **Cause:** Invalid domain, credentials, or expired API token.  
+    **Solution:**
+    - Verify your Jira domain (e.g., `https://your-domain.atlassian.net`).  
+    - Ensure your Xray API Client ID and Secret are valid.  
+    - If expired, regenerate the credentials in Xray and reconnect.
+  </Accordion>
+
+  <Accordion title="I receive a '401 Unauthorized' error.">
+    **Cause:** The Xray API credentials or Jira email do not match.  
+    **Solution:**
+    - Confirm the Xray token belongs to the same account used in ProgramGenie.  
+    - Check that your user has permission to create and update Test and Test Execution issues.
+  </Accordion>
+
+  <Accordion title="Test cases appear duplicated in Xray.">
+    **Cause:** Multiple syncs triggered for the same artefact.  
+    **Solution:**
+    - Avoid running parallel syncs for the same project.  
+    - Use Genie’s “Resync” option instead of manually re-adding connectors.
+  </Accordion>
+
+  <Accordion title="Generated test cases aren’t visible in Xray.">
+    **Cause:** Wrong Project Key or missing permissions.  
+    **Solution:**
+    - Verify that the specified Project Key exists and is linked to Xray.  
+    - Check your user role permissions in Jira/Xray settings.
+  </Accordion>
+
+  <Accordion title="Test results or executions aren’t syncing back to Genie.">
+    **Cause:** Integration paused or expired API token.  
+    **Solution:**
+    - Reconnect using fresh Xray API credentials.  
+    - Check the ProgramGenie connector status and click “Resync”.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (Xray Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my Xray API credentials?">
+    The API credentials enable ProgramGenie to create and synchronize Test, Test Plan, and Test Execution artefacts directly in Jira/Xray without storing your password.
+  </Accordion>
+
+  <Accordion title="Can multiple users connect to the same Xray project?">
+    Yes. Each user can connect with their own Xray credentials, maintaining access control and traceability.
+  </Accordion>
+
+  <Accordion title="What happens when my API key expires or is deleted?">
+    ProgramGenie will stop syncing with Xray until new credentials are provided in the connector setup.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie modify existing tests in Xray?">
+    ProgramGenie only updates or syncs tests it originally created — it won’t change unrelated Xray issues.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with Xray?">
+    Syncing happens automatically in near real time whenever artefacts are generated or updated in Genie.  
+    You can also trigger a manual sync anytime.
+  </Accordion>
+
+  <Accordion title="What permissions do I need in Jira/Xray?">
+    You need permission to **create, edit, and execute tests** within the selected Xray project.  
+    If unsure, contact your Jira administrator.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or reconnect the Xray connector later?">
+    Yes. You can disconnect or reconfigure the Xray connector anytime through ProgramGenie settings.
+  </Accordion>
+</AccordionGroup>

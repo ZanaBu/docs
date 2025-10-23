@@ -1,16 +1,14 @@
 ---
 title: "Jira Connector"
 description: "Learn how to connect and sync your ProgramGenie projects with Jira for seamless project delivery and real-time visibility."
+icon: "jira"
 ---
 
 ## What is Jira
-
 Jira helps teams plan, track, and deliver software efficiently.
 
 With ProgramGenie integration, all generated requirements, stories, and test cases sync automatically into Jira — creating a seamless flow from idea to implementation.
-
 ### TL;DR:
-
 - **Jira** is a project management and issue-tracking tool used by software teams to plan, track, and release products.
 - **ProgramGenie** automates the creation of requirements, epics, user stories, and test cases directly from your project input. \
   When connected, Genie automatically syncs all artefacts with Jira — meaning your documentation, tasks, and tests are instantly available to every team member.
@@ -18,9 +16,8 @@ With ProgramGenie integration, all generated requirements, stories, and test cas
 
 In short: **Genie creates, Jira organizes — together, they deliver.**
 
-
+<Info>Before connecting, make sure you have access to Jira Cloud and permission to create API tokens and projects. Without these permissions, the connection may fail.</Info>
 ## Key Benefits of Jira Integration
-
 The Jira integration unlocks several powerful advantages that streamline delivery, enhance collaboration, and ensure every project stays accurate and up to date:
 
 - **Seamless Artefact Sync:** Every requirement, user story, and test case generated in Genie can be automatically pushed to Jira. Updates in Genie are reflected in Jira in real time, ensuring both systems stay aligned.
@@ -31,7 +28,6 @@ The Jira integration unlocks several powerful advantages that streamline deliver
 - **Change Management:**  When a client requests a change — for example, "Change the app's color bar to blue" — Genie updates every related artefact automatically and syncs those changes to Jira instantly. Developers, testers, and managers see the update in seconds, maintaining alignment and reducing risk.
 
 ## Connecting ProgramGenie to Jira (Setup guide)
-
 <iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/4KzFe50RQkQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
 To start using ProgramGenie with Jira, you need to connect your Jira account and connect it to ProgramGenie platform. Here's how to set it up:
@@ -61,9 +57,11 @@ To start using ProgramGenie with Jira, you need to connect your Jira account and
     - Jira then shows you the token — a long string of letters and numbers.
     - You copy that token and paste it into ProgramGenie’s Jira connector screen (alongside your Jira email).
     - From that moment, ProgramGenie can securely read/write Jira data until the token expires.
+    <Info>**Important:** API tokens are personal and cannot be shared. Each user should generate their own token. If your token expires or is deleted in Jira, ProgramGenie will lose access automatically until a new one is added.</Info>
+<Note>**Tip:** Use descriptive names and expiry dates for your tokens (e.g., ProgramGenie Integration – 90 days) to keep your integrations organized and secure.</Note>
   </Step>
   <Step title="Email">
-    Enter the Jira user’s email (usually the project lead). It must be the same user who generated the token and must have write access to create, edit, and delete Epics & Stories.
+    Enter the Jira user’s email (usually the project lead). It must be the same user who generated the token and must have write access to create, edit, and delete Epics & Stories.<Warning>Note: The email you enter must match the one used to generate the API token. Using a different account will result in an “Unauthorized” error during connection.</Warning>
   </Step>
   <Step title="Project Key">
     Provide a maximum ten-character alphanumeric key. Jira uses this as the prefix for issue keys (e.g., “ABCD” → “ABCD-23”). Use the existing project’s key, or a new unique key to have ProgramGenie create a project automatically.
@@ -71,7 +69,6 @@ To start using ProgramGenie with Jira, you need to connect your Jira account and
 </Steps>
 
 ## Troubleshooting (Jira Connector)
-
 Here are some frequently asked questions and common issues with the Jira connector, along with steps to help you resolve them. Click on a question to see the answer.
 
 <AccordionGroup>

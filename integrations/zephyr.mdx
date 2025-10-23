@@ -1,0 +1,182 @@
+---
+title: "Zephyr Connector"
+description: "Connect ProgramGenie with Zephyr to automatically publish and synchronize test cases, executions, and test cycles for seamless QA management."
+icon: "zephyr"
+---
+
+## What is Zephyr
+Zephyr is a powerful test management solution for Jira, enabling QA teams to plan, execute, and track manual and automated tests directly within their development workflow.
+
+By integrating ProgramGenie with Zephyr, you can automatically push generated test cases and test cycles from Genie into Zephyr — keeping your testing documentation and execution status synchronized in real time.
+
+### TL;DR:
+- **Zephyr** helps QA teams manage and execute tests within Jira.  
+- **ProgramGenie** automatically generates detailed test cases and test cycles from requirements and user stories.  
+- **The integration** ensures end-to-end traceability between requirements, tests, and defects.
+
+In short: **Genie creates, Zephyr validates — together, they assure quality.**
+
+---
+
+## Why Integrate Zephyr with ProgramGenie
+Connecting Zephyr with ProgramGenie provides QA teams and test managers with full alignment between generated artefacts and real-world execution.
+
+- **Automated Test Case Sync:** All Genie-generated test cases are automatically pushed to Zephyr.  
+- **Traceability from Requirement to Execution:** Each Zephyr test links back to its originating requirement or user story in Genie.  
+- **Reduced Manual Work:** No more copy-pasting test descriptions or updating Jira manually.  
+- **Unified Reporting:** Managers can view both generated coverage and actual test execution data directly in Jira’s Zephyr reports.  
+- **Continuous QA Visibility:** Every requirement generated in Genie has a corresponding test asset in Zephyr, maintaining coverage metrics automatically.  
+- **Faster Regression Testing:** As Genie regenerates or updates stories, Zephyr tests stay current.
+
+<Info>
+Before connecting, ensure your Jira instance includes the Zephyr app (Zephyr Squad or Zephyr Scale) and that your user account has permission to create and manage test cases.
+</Info>
+
+---
+
+## Connecting ProgramGenie to Zephyr (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/a6En7khyqLg"
+  title="ProgramGenie Zephyr Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+To start using ProgramGenie with Zephyr, you must connect Genie to your Jira instance where Zephyr is installed.
+
+<Steps>
+  <Step title="Integration">
+    Select **Zephyr** as the product for integration.
+  </Step>
+
+  <Step title="Name">
+    Assign a unique and descriptive name for this connector instance (e.g., “Zephyr – QA Management”).
+  </Step>
+
+  <Step title="Description">
+    Optionally describe what this connector will do (e.g., “Syncs Genie-generated test cases to Zephyr Squad”).
+  </Step>
+
+  <Step title="Domain">
+    Enter your Atlassian Jira Cloud domain, for example: https://your-domain.atlassian.net.
+  </Step>
+
+  <Step title="Email and Token">
+    ProgramGenie uses your Atlassian account email and API token to authenticate Zephyr access.
+
+    - Go to Jira → **Profile → Account settings → Security tab**.  
+    - Under **API Tokens**, click **Create and Manage API tokens**.  
+    - Click **Create API Token**, name it (e.g., “ProgramGenie Zephyr Integration”), and set an expiry date.  
+    - Copy the generated token and paste it into ProgramGenie’s Zephyr connector, along with your Jira email address.
+
+    <Warning>
+    **Important:** Use the same Jira account that has access to the Zephyr plugin.  
+    If the token is generated from a different user or expires, syncing will stop until a new valid token is added.
+    </Warning>
+  </Step>
+
+  <Step title="Project Key">
+    Provide the Jira project key linked to your Zephyr setup.  
+    ProgramGenie will automatically associate generated test cases with this project.
+  </Step>
+
+  <Step title="Mapping">
+    Choose what you’d like to sync:
+    - Test Cases  
+    - Test Cycles  
+    - Execution Results  
+
+    Genie will mirror your selection and update Zephyr accordingly after each generation.
+  </Step>
+</Steps>
+
+<Note>
+If your organization uses **Zephyr Scale**, ensure the project type is compatible. ProgramGenie currently supports both Zephyr Squad and Zephyr Scale for Jira Cloud.
+</Note>
+
+---
+
+## Troubleshooting (Zephyr Connector)
+
+<AccordionGroup>
+  <Accordion title="My Zephyr connection fails when trying to connect ProgramGenie.">
+    **Cause:** The API token or user email may be invalid, expired, or lack Zephyr permissions.
+
+    **Solution:**
+    - Ensure your Jira user has access to the Zephyr app within the target project.  
+    - Verify that the email matches the token owner.  
+    - Re-generate the token if expired and reconnect.
+  </Accordion>
+
+  <Accordion title="Test cases are not appearing in Zephyr.">
+    **Cause:** Incorrect project mapping or missing permissions.
+
+    **Solution:**
+    - Check that the Jira Project Key matches the one linked to Zephyr.  
+    - Make sure your account has permission to create tests in Zephyr.  
+    - Run a manual re-sync in ProgramGenie.
+  </Accordion>
+
+  <Accordion title="I get 'Unauthorized' or '401' errors during sync.">
+    **Cause:** Jira rejected your authentication credentials.
+
+    **Solution:**
+    - Confirm that the API token belongs to the same account used for email authentication.  
+    - Verify that Zephyr is installed and accessible for that Jira user.  
+    - Reconnect with a valid token.
+  </Accordion>
+
+  <Accordion title="Execution results are not syncing from Zephyr to Genie.">
+    **Cause:** API permissions or Zephyr Scale endpoints not accessible.
+
+    **Solution:**
+    - Verify your Zephyr plan supports API read/write.  
+    - Contact your Jira admin to confirm API access is enabled.  
+    - Retry syncing after verifying permissions.
+  </Accordion>
+
+  <Accordion title="The connector stopped working suddenly.">
+    **Cause:** Token expired or Zephyr plugin permissions changed.
+
+    **Solution:**
+    - Re-generate the API token in Jira.  
+    - Confirm Zephyr app access and reconnect in Genie.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (Zephyr Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my Zephyr API access?">
+    The connector uses your Atlassian API token to communicate securely with Zephyr inside Jira, allowing Genie to create, update, and synchronize test cases without exposing your password.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie modify existing Zephyr tests?">
+    No. Genie only creates or updates tests it originally generated. Existing tests remain untouched.
+  </Accordion>
+
+  <Accordion title="Can multiple users connect to the same Zephyr project?">
+    Yes, but each user should authenticate with their own Atlassian email and token for traceability and security.
+  </Accordion>
+
+  <Accordion title="What happens if my API token expires?">
+    Syncing will pause until a new valid token is provided in ProgramGenie. You’ll see a “Connection expired” message.
+  </Accordion>
+
+  <Accordion title="What permissions are required for Zephyr integration?">
+    You need permission to create, edit, and execute tests in the target Jira project where Zephyr is installed.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with Zephyr?">
+    Synchronization occurs automatically after artefacts are generated or updated. You can also trigger a manual sync anytime.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or switch my Zephyr account later?">
+    Yes. You can disconnect or change the integration anytime in ProgramGenie’s connector settings.
+  </Accordion>
+</AccordionGroup>

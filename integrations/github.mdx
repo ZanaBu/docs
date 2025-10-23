@@ -1,0 +1,173 @@
+---
+title: "GitHub Connector"
+description: "Integrate ProgramGenie with GitHub to automatically sync generated artefacts — such as requirements, user stories, and test cases — into GitHub Issues for unified project tracking."
+icon: "github"
+---
+
+## What is GitHub
+GitHub is the world’s leading platform for software collaboration — combining version control, project tracking, and automation in a single developer ecosystem.
+
+The **ProgramGenie + GitHub** integration allows you to push generated artefacts (requirements, user stories, and test cases) directly into **GitHub Issues** under your selected repository.  
+This bridges the gap between project documentation and development execution, keeping everything aligned from idea to delivery.
+
+### TL;DR
+- **GitHub** provides issue tracking, code management, and collaboration for software teams.  
+- **ProgramGenie** automatically generates structured artefacts and syncs them into GitHub repositories as issues.  
+- **Integration** ensures real-time traceability between business intent and engineering work.  
+
+In short: **Genie creates, GitHub manages — together, they build smarter.**
+
+<Info>
+Before connecting, ensure you have permission to create issues in your GitHub repository and access to generate a **Personal Access Token (PAT)** with the required scopes.
+</Info>
+
+---
+
+## Key Benefits of GitHub Integration
+
+- **Automated Artefact Sync:** Generated requirements, stories, and test cases are automatically pushed as GitHub Issues.  
+- **End-to-End Traceability:** Every issue in GitHub can be traced back to its originating artefact in Genie.  
+- **Seamless Collaboration:** Analysts work in Genie, developers in GitHub — both stay in sync.  
+- **Real-Time Updates:** Changes in Genie instantly reflect in GitHub, eliminating manual duplication.  
+- **Project Transparency:** GitHub Boards can automatically track Genie artefacts, improving sprint visibility.  
+- **Secure & Scalable:** Uses GitHub’s token-based API for authenticated and role-based integration.
+
+---
+
+## Connecting ProgramGenie to GitHub (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/R_3YkqTH9vM"
+  title="ProgramGenie GitHub Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+Follow these steps to connect your GitHub account with ProgramGenie and enable automatic artefact synchronization.
+
+<Steps>
+  <Step title="Integration">
+    Select **GitHub** as the integration product in the ProgramGenie Connectors section.
+  </Step>
+  <Step title="Name">
+    Provide a clear name for your connector instance (e.g., “GitHub – Engineering Workspace”).
+  </Step>
+  <Step title="Description">
+    Optionally describe this connector (e.g., “Syncs Genie artefacts with GitHub Issues in the API repository”).
+  </Step>
+  <Step title="Repository">
+    Enter the full repository path in GitHub format:  
+    `organization-name/repository-name`  
+    Example: `programgenie/platform-ui`
+  </Step>
+  <Step title="Personal Access Token (PAT)">
+    The GitHub PAT allows ProgramGenie to securely interact with your repository.
+
+    - Go to **GitHub → Settings → Developer Settings → Personal Access Tokens → Fine-grained tokens**.  
+    - Click **Generate new token** and select:
+      - **Repository access:** Choose the repository you want to connect.
+      - **Permissions:** Enable at least:
+        - Issues → Read and Write
+        - Metadata → Read-only
+        - Contents → Read-only
+    - Set an expiry date (recommended: 90 days).
+    - Generate and copy the token.
+    - Paste the token into the ProgramGenie GitHub Connector setup screen.
+
+    <Warning>
+    **Important:** PATs are personal credentials. Once expired or revoked, ProgramGenie will stop syncing until you provide a new token.
+    </Warning>
+
+    <Note>
+    **Tip:** Use different tokens for separate repositories or environments to keep integrations organized and secure.
+    </Note>
+  </Step>
+  <Step title="Default Issue Type or Label">
+    Choose how ProgramGenie artefacts are represented in GitHub:
+    - Requirements → Issues (label: “requirement”)
+    - User Stories → Issues (label: “story”)
+    - Test Cases → Issues (label: “test”)
+  </Step>
+</Steps>
+
+---
+
+## Troubleshooting (GitHub Connector)
+
+<AccordionGroup>
+  <Accordion title="Connection fails when setting up the GitHub connector.">
+    **Cause:** Invalid repository path or expired token.  
+    **Solution:**
+    - Confirm the repository name matches the GitHub format (`org/repo`).  
+    - Check the token scopes — it must include **Issues (Read & Write)**.  
+    - If expired, create a new token and reconnect.
+  </Accordion>
+
+  <Accordion title="I receive a '401 Unauthorized' error.">
+    **Cause:** The PAT doesn’t have the required permissions.  
+    **Solution:**
+    - Ensure the token’s repository access includes the target repo.  
+    - Enable “Issues: Read & Write” permission.  
+    - Reconnect the integration with the correct token.
+  </Accordion>
+
+  <Accordion title="Issues are not appearing in GitHub after syncing.">
+    **Cause:** Incorrect repository mapping or insufficient permissions.  
+    **Solution:**
+    - Double-check the repository name and token scopes.  
+    - Verify the connected user can manually create issues in that repository.  
+    - Try re-syncing the project from ProgramGenie.
+  </Accordion>
+
+  <Accordion title="Changes made in ProgramGenie aren’t updating in GitHub.">
+    **Cause:** Auto-sync paused or PAT expired.  
+    **Solution:**
+    - Click **Resync** in ProgramGenie.  
+    - Check token expiry in GitHub → Developer Settings → Tokens.
+  </Accordion>
+
+  <Accordion title="Labels or metadata look inconsistent.">
+    **Cause:** Custom label mapping mismatch.  
+    **Solution:**
+    - Adjust the mapping configuration in Genie’s GitHub connector.  
+    - Re-publish to refresh issue labels and status.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (GitHub Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my GitHub Personal Access Token (PAT)?">
+    The PAT provides secure access for ProgramGenie to create and manage GitHub Issues without storing your password.
+  </Accordion>
+
+  <Accordion title="Can multiple users connect to the same GitHub repository?">
+    Yes. Each user can connect using their own PAT, ensuring proper permissions and visibility for each contributor.
+  </Accordion>
+
+  <Accordion title="What happens when the PAT expires?">
+    ProgramGenie will stop syncing with GitHub until a new valid token is added in the connector settings.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie overwrite existing GitHub Issues?">
+    No. ProgramGenie only updates or links issues it originally created — it won’t modify unrelated issues.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with GitHub?">
+    Synchronization happens automatically in near real time whenever artefacts are created or updated in Genie.  
+    Manual syncs can be triggered anytime from the connector panel.
+  </Accordion>
+
+  <Accordion title="What permissions are required in GitHub?">
+    You need permission to **create and edit issues** within the connected repository.  
+    If you’re part of an organization, confirm this with your repo admin.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or reconnect my GitHub account later?">
+    Yes. You can disconnect anytime in ProgramGenie settings and reconnect using a different account or repository.
+  </Accordion>
+</AccordionGroup>

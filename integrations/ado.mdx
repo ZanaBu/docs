@@ -1,0 +1,169 @@
+---
+title: "Azure DevOps (ADO) Connector"
+description: "Connect ProgramGenie with Azure DevOps to automatically sync generated requirements, user stories, and test cases into your ADO projects."
+icon: "azure"
+---
+
+## What is Azure DevOps (ADO)
+Azure DevOps (ADO) is Microsoft’s platform for end-to-end software delivery — from planning and tracking work items to managing code, pipelines, and releases.
+
+With ProgramGenie’s ADO connector, all generated artefacts — requirements, user stories, and test cases — are automatically published and kept in sync inside your Azure Boards.  
+This ensures every team member works from a single, consistent source of truth across the SDLC.
+
+### TL;DR
+- **Azure DevOps** provides integrated tools for agile planning, code collaboration, and CI/CD.  
+- **ProgramGenie** generates structured project artefacts (requirements, stories, tests) and syncs them directly to Azure Boards.  
+- **Integration** ensures instant traceability between business requirements and technical delivery, eliminating manual updates.
+
+In short: **Genie generates, ADO tracks — together, they deliver.**
+
+<Info>
+Before connecting, ensure you have access to your Azure DevOps organization and permission to create and edit work items and projects.  
+ProgramGenie uses your Personal Access Token (PAT) for secure authentication.
+</Info>
+
+---
+
+## Key Benefits of ADO Integration
+
+- **Unified Planning:** All generated artefacts flow directly into your Azure Boards — no copy-paste or import steps.  
+- **Real-Time Sync:** Updates in Genie instantly appear in ADO, ensuring both systems stay aligned.
+- **Traceability:** Each ADO work item maps back to its original Genie artefact, maintaining a full audit trail.
+- **Cross-Tool Collaboration:** Business analysts and testers use Genie for generation, while developers manage progress in ADO.
+- **Governance & Reporting:** ADO dashboards can report on Genie-generated artefacts automatically.
+- **Scalable Projects:** Works across multiple projects and teams within the same Azure DevOps organization.
+
+---
+
+## Connecting ProgramGenie to Azure DevOps (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/LXQ-e5h0u8o"
+  title="ProgramGenie Azure DevOps Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+To integrate ProgramGenie with Azure DevOps, configure the connector using your ADO organization URL and Personal Access Token (PAT).
+
+<Steps>
+  <Step title="Integration">
+    Select **Azure DevOps** as the product to integrate with ProgramGenie.
+  </Step>
+  <Step title="Name">
+    Create a descriptive name for the connector instance (e.g., “ADO – Product Delivery”).
+  </Step>
+  <Step title="Description">
+    Optionally describe the purpose of this connector (e.g., “Syncs requirements and tests with ADO Project X”).
+  </Step>
+  <Step title="Organization URL">
+    Enter your Azure DevOps organization URL, for example:  
+    `https://dev.azure.com/your-organization/`
+  </Step>
+  <Step title="Personal Access Token (PAT)">
+    The PAT allows ProgramGenie to authenticate securely with Azure DevOps.
+
+    - In Azure DevOps, go to **User Settings → Personal Access Tokens**.
+    - Click **New Token**.
+    - Name it (e.g., “ProgramGenie Integration”) and set an expiry date (recommended 90 days).
+    - Under **Scopes**, select **Work Items (Read & Write)** and **Project & Team (Read)**.
+    - Create the token and copy the generated string.
+    - Paste it into the ProgramGenie ADO connector screen along with your Organization URL.
+
+    <Warning>
+    **Important:** PATs are user-specific and expire automatically.  
+    When your token expires or is revoked, ProgramGenie will stop syncing until you add a new one.
+    </Warning>
+
+    <Note>
+    **Tip:** Use short-lived tokens and renew them periodically for better security hygiene.
+    </Note>
+  </Step>
+  <Step title="Project Name">
+    Select or enter the name of the Azure DevOps project where you want artefacts to sync.  
+    ProgramGenie will automatically create corresponding work items if they don’t exist.
+  </Step>
+  <Step title="Work Item Types Mapping">
+    Map Genie artefacts to ADO work item types (e.g., Requirement → Feature, Story → User Story, Test Case → Test Case).
+  </Step>
+</Steps>
+
+---
+
+## Troubleshooting (ADO Connector)
+
+<AccordionGroup>
+  <Accordion title="Connection fails when authenticating with Azure DevOps.">
+    **Cause:** Invalid Organization URL or expired Personal Access Token.  
+    **Solution:**
+    - Confirm the Organization URL matches your ADO Cloud domain (`https://dev.azure.com/your-org/`).
+    - Generate a new PAT with proper scopes and re-enter it in ProgramGenie.
+  </Accordion>
+
+  <Accordion title="I receive an 'Unauthorized' (401) error.">
+    **Cause:** The PAT doesn’t have required permissions or belongs to another account.  
+    **Solution:**
+    - Ensure the token scope includes “Work Items (Read & Write)”.
+    - Verify that the PAT owner has access to the selected project.
+    - Try re-authenticating with a new token.
+  </Accordion>
+
+  <Accordion title="Work items are not appearing in ADO after sync.">
+    **Cause:** Incorrect project mapping or insufficient permissions.  
+    **Solution:**
+    - Check that the Project Name matches exactly the target ADO project.
+    - Verify that your PAT user has create-item rights.
+    - Re-sync the project from Genie’s connector panel.
+  </Accordion>
+
+  <Accordion title="Changes in Genie aren’t reflected in ADO.">
+    **Cause:** The auto-sync process is paused or the PAT expired.  
+    **Solution:**
+    - Click “Resync” in ProgramGenie or reconnect the integration.
+    - If still stuck, check whether your PAT is active under Azure DevOps Settings → Personal Access Tokens.
+  </Accordion>
+
+  <Accordion title="Mapping errors between Genie artefacts and ADO work items.">
+    **Cause:** Incorrect work item type mapping.  
+    **Solution:**
+    - Go to connector settings and ensure artefact types align (e.g., Story → User Story).
+    - Save changes and retry sync.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (Azure DevOps Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my Personal Access Token (PAT)?">
+    The PAT is a secure way for ProgramGenie to communicate with Azure DevOps APIs without storing your password.
+  </Accordion>
+
+  <Accordion title="Can multiple users connect the same ADO project?">
+    Yes. Each user can connect with their own PAT to maintain individual access control.
+  </Accordion>
+
+  <Accordion title="What happens when the PAT expires?">
+    ProgramGenie stops syncing with ADO until a new token is generated and updated in the connector.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie modify existing ADO work items?">
+    Genie only updates the work items it created; it does not delete or alter unrelated tasks.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with ADO?">
+    Syncs happen in near real time. You can trigger a manual sync anytime.
+  </Accordion>
+
+  <Accordion title="What permissions do I need in Azure DevOps?">
+    You need permission to create, edit, and link work items within the target project.  
+    If you’re unsure, contact your ADO administrator.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or switch the ADO account later?">
+    Yes. You can disconnect the connector anytime in ProgramGenie settings and reconnect with another account.
+  </Accordion>
+</AccordionGroup>

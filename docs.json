@@ -45,7 +45,14 @@
           "pages": [
             "integrations/welcome_integrations",
             "integrations/jira",
-            "integrations/confluence"
+            "integrations/confluence",
+            "integrations/zephyr",
+            "integrations/ado",
+            "integrations/gitlab",
+            "integrations/bitbucket",
+            "integrations/github",
+            "integrations/testrail",
+            "integrations/xray"
           ]
         }
       ]

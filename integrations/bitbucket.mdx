@@ -1,0 +1,183 @@
+---
+title: "Bitbucket Connector"
+description: "Integrate ProgramGenie with Bitbucket to synchronize generated artefacts — such as requirements, user stories, and test cases — directly with Bitbucket repositories and issues."
+icon: "bitbucket"
+---
+
+## What is Bitbucket
+Bitbucket is Atlassian’s Git-based platform for source code management and software collaboration.  
+It provides private repositories, pull request reviews, and integrated issue tracking — enabling teams to plan, build, test, and deploy together.
+
+With the **ProgramGenie Bitbucket Connector**, generated artefacts like requirements, stories, and test cases can be automatically published into Bitbucket’s issue tracker.  
+This ensures seamless alignment between business requirements and engineering delivery pipelines.
+
+### TL;DR
+- **Bitbucket** manages repositories, issues, and CI/CD pipelines.  
+- **ProgramGenie** automatically creates structured artefacts (requirements, stories, test cases) and syncs them into Bitbucket Issues.  
+- **Integration** unifies documentation and development workflows, reducing manual effort.
+
+In short: **Genie defines, Bitbucket delivers — together, they code smarter.**
+
+---
+
+## Why Integrate ProgramGenie with Bitbucket?
+
+- **End-to-End Traceability:** Link generated requirements, user stories, and test cases directly to Bitbucket issues.  
+- **Frictionless Collaboration:** Analysts, testers, and developers stay aligned across Genie and Bitbucket.  
+- **Real-Time Sync:** Changes in Genie immediately reflect in Bitbucket, eliminating version gaps.  
+- **Enhanced Governance:** Keep technical artefacts, documentation, and code branches in sync under one ecosystem.  
+- **Improved Developer Focus:** Developers receive clear, AI-generated issue descriptions directly in Bitbucket.
+
+<Info>
+To connect ProgramGenie with Bitbucket, you’ll need **write access** to a repository and a **Bitbucket App Password** (used for secure authentication).
+</Info>
+
+---
+
+## Connecting ProgramGenie to Bitbucket (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/lzWWQ8jtk9s"
+  title="ProgramGenie Bitbucket Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+To establish the integration between ProgramGenie and Bitbucket, follow these steps:
+
+<Steps>
+  <Step title="Integration">
+    Choose **Bitbucket** from the list of available connectors in ProgramGenie.
+  </Step>
+  <Step title="Name">
+    Give your connector instance a descriptive name, such as “Bitbucket – QA Integration”.
+  </Step>
+  <Step title="Description">
+    Optionally describe the purpose of this connector (e.g., “Publishes generated test cases to Bitbucket issue tracker”).
+  </Step>
+  <Step title="Workspace & Repository">
+    Enter your Bitbucket **Workspace ID** and **Repository name**.  
+    Example: `myworkspace/my-repository`
+  </Step>
+  <Step title="App Password Authentication">
+    Bitbucket uses **App Passwords** for secure API access.  
+    Follow these steps to generate one:
+
+    - In Bitbucket, go to **Personal settings → App passwords**.  
+    - Click **Create app password**.  
+    - Give it a name (e.g., “ProgramGenie Integration”).  
+    - Enable the following permissions:
+      - **Repositories:** Read and Write  
+      - **Issues:** Read and Write  
+      - **Pull requests:** Read (optional)
+    - Copy the generated password — Bitbucket will show it only once.  
+    - In ProgramGenie, enter:
+      - Your **Bitbucket email address (username)**.  
+      - The **App Password** generated above.
+
+    <Warning>
+    **Important:** App Passwords are user-specific. If deleted or revoked, ProgramGenie will lose access until a new one is added.
+    </Warning>
+
+    <Note>
+    **Tip:** Use separate Bitbucket accounts or app passwords for different environments (e.g., Production vs. Testing) to maintain clean permission boundaries.
+    </Note>
+  </Step>
+  <Step title="Issue Mapping">
+    Define how Genie artefacts map to Bitbucket issues:
+    - Requirements → “Task”  
+    - User Stories → “Story”  
+    - Test Cases → “Bug” or “Test” (depending on your workflow)  
+    ProgramGenie will create and tag these automatically.
+  </Step>
+</Steps>
+
+---
+
+## Example Workflow
+
+1. A product brief is generated in Genie.  
+2. Genie converts the requirements into structured user stories.  
+3. Each story is automatically synced as a Bitbucket issue under your selected repository.  
+4. Developers can view, update, and link commits or branches directly from those issues.  
+5. Any updates or edits in Genie reflect in Bitbucket — maintaining continuous alignment.
+
+---
+
+## Troubleshooting (Bitbucket Connector)
+
+<AccordionGroup>
+  <Accordion title="Connection fails during setup.">
+    **Cause:** Incorrect workspace, repository name, or invalid App Password.  
+    **Solution:**
+    - Verify your workspace and repository values match your Bitbucket URL.  
+    - Ensure the App Password includes **Repositories (Read & Write)** and **Issues (Read & Write)** permissions.  
+    - Re-enter your email and password and try again.
+  </Accordion>
+
+  <Accordion title="I get a '401 Unauthorized' error.">
+    **Cause:** Invalid credentials or expired App Password.  
+    **Solution:**
+    - Recreate the App Password and reconnect the integration.  
+    - Double-check that the account used has write access to the target repository.
+  </Accordion>
+
+  <Accordion title="Issues are not showing up in Bitbucket.">
+    **Cause:** Incorrect mapping or permission restrictions.  
+    **Solution:**
+    - Confirm issue tracking is **enabled** in your Bitbucket repository settings.  
+    - Recheck artefact mapping and connector configuration in ProgramGenie.
+  </Accordion>
+
+  <Accordion title="Changes made in Genie aren’t updating Bitbucket issues.">
+    **Cause:** The sync service is paused or the App Password was revoked.  
+    **Solution:**
+    - Click “Resync” in ProgramGenie.  
+    - Reconnect using a new App Password if needed.
+  </Accordion>
+
+  <Accordion title="Labels or categories appear incorrectly.">
+    **Cause:** Custom issue types or naming differences.  
+    **Solution:**
+    - Update mapping settings in Genie to match your Bitbucket issue types.  
+    - Re-sync the project.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (Bitbucket Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need a Bitbucket App Password?">
+    Bitbucket requires App Passwords for secure API access — this allows ProgramGenie to create and update issues without storing your actual password.
+  </Accordion>
+
+  <Accordion title="Can multiple users connect to the same repository?">
+    Yes. Each user can create their own App Password tied to their account for independent authentication and audit tracking.
+  </Accordion>
+
+  <Accordion title="What happens if my App Password is deleted?">
+    ProgramGenie will stop syncing until a new valid App Password is provided.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie modify existing Bitbucket issues?">
+    ProgramGenie only updates or links issues it originally created — it will not alter unrelated issues.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with Bitbucket?">
+    Syncing happens automatically whenever artefacts are generated or updated in Genie.  
+    Manual syncs can also be triggered from the connector screen.
+  </Accordion>
+
+  <Accordion title="What Bitbucket permissions are required?">
+    You need **Write access** to the repository and **permission to create issues**.  
+    Admin rights are not required.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or reconnect the Bitbucket integration later?">
+    Yes. You can disconnect anytime from ProgramGenie’s settings and reconnect with a new App Password or workspace.
+  </Accordion>
+</AccordionGroup>

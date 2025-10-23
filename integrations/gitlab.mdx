@@ -1,0 +1,178 @@
+---
+title: "GitLab Connector"
+description: "Integrate ProgramGenie with GitLab to sync generated requirements, user stories, and issues directly into GitLab projects for seamless traceability and delivery."
+icon: "gitlab"
+---
+
+## What is GitLab
+GitLab is an integrated DevOps platform that provides version control, CI/CD pipelines, issue tracking, and project management — all in one place.
+
+By connecting ProgramGenie with GitLab, you can automatically push generated artefacts such as requirements, user stories, and test cases into GitLab Issues or Epics.  
+This creates a single, automated workflow that links business requirements from Genie to development tasks in GitLab.
+
+### TL;DR
+- **GitLab** helps teams collaborate on code, issues, and CI/CD pipelines in one ecosystem.  
+- **ProgramGenie** automatically generates structured artefacts (requirements, user stories, tests) and syncs them to GitLab projects.  
+- **Integration** ensures traceability between business and development without manual duplication.
+
+In short: **Genie creates, GitLab builds — together, they deliver.**
+
+<Info>
+Before connecting, ensure you have access to your GitLab workspace with permission to create and manage issues or epics.  
+ProgramGenie uses your **Personal Access Token (PAT)** for secure communication with GitLab’s REST API.
+</Info>
+
+---
+
+## Key Benefits of GitLab Integration
+
+- **Automated Sync:** Genie’s generated artefacts (requirements, stories, and test cases) are automatically pushed as GitLab issues.  
+- **Cross-Team Visibility:** PMs and QA teams work in Genie, while developers manage linked issues in GitLab.  
+- **Full Traceability:** Each GitLab issue references its original Genie artefact, ensuring auditability and accountability.  
+- **Instant Updates:** Changes in Genie are reflected in GitLab in real time — no spreadsheets or manual imports.  
+- **Scalable Setup:** Works across multiple repositories and groups within the same GitLab instance.  
+- **Improved Governance:** Centralizes project management, requirements, and code discussions under one connected ecosystem.
+
+---
+
+## Connecting ProgramGenie to GitLab (Setup Guide)
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/x5U6gxzBvQc"
+  title="ProgramGenie GitLab Connector Setup"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+To connect GitLab with ProgramGenie, you’ll configure the connector using your GitLab instance URL and Personal Access Token (PAT).
+
+<Steps>
+  <Step title="Integration">
+    Select **GitLab** as the integration product in ProgramGenie.
+  </Step>
+  <Step title="Name">
+    Create a descriptive name for the connector (e.g., “GitLab – Engineering Integration”).
+  </Step>
+  <Step title="Description">
+    Optionally, describe this connector (e.g., “Syncs user stories and tests with GitLab Project A”).
+  </Step>
+  <Step title="Instance URL">
+    Enter your GitLab instance URL.  
+    For GitLab Cloud: `https://gitlab.com`  
+    For self-hosted GitLab: use your internal domain (e.g., `https://gitlab.yourcompany.com`).
+  </Step>
+  <Step title="Personal Access Token (PAT)">
+    The PAT authenticates ProgramGenie to securely access GitLab on your behalf.
+
+    - In GitLab, go to **User Settings → Access Tokens**.
+    - Click **Create Personal Access Token**.
+    - Add a descriptive name (e.g., “ProgramGenie Integration”) and set an expiry date (recommended: 90 days).
+    - Under **Scopes**, select:
+      - `api` – for full API access.
+      - `read_user` – to validate user details.
+      - `write_repository` – to create and update issues.
+    - Click **Create personal access token** and copy the generated string.
+    - Paste the token into the ProgramGenie connector screen along with your instance URL.
+
+    <Note>
+    **Tip:** Use separate tokens for different projects or environments (e.g., UAT, Production) to simplify management and security rotation.
+    </Note>
+
+    <Warning>
+    **Important:** GitLab PATs are personal credentials. Do not share them.  
+    Once a token expires or is revoked, ProgramGenie will stop syncing until it’s replaced.
+    </Warning>
+  </Step>
+  <Step title="Project ID">
+    Enter the **GitLab Project ID** where artefacts should sync.  
+    You can find it on your GitLab project homepage (usually below the project name).
+  </Step>
+  <Step title="Mapping">
+    Map Genie artefact types to GitLab entities:  
+    - Requirements → Epics or Issues  
+    - Stories → Issues  
+    - Test Cases → Issues (with label `QA` or `Test`)  
+    ProgramGenie will maintain consistent mapping across future syncs.
+  </Step>
+</Steps>
+
+---
+
+## Troubleshooting (GitLab Connector)
+
+<AccordionGroup>
+  <Accordion title="My GitLab connection fails during setup.">
+    **Cause:** Invalid instance URL or incorrect Personal Access Token.  
+    **Solution:**
+    - Ensure the token was generated with the required scopes (`api`, `read_user`, `write_repository`).  
+    - Confirm your instance URL is correct (e.g., `https://gitlab.com` or self-hosted domain).  
+    - Recreate the token and try reconnecting.
+  </Accordion>
+
+  <Accordion title="I get a '401 Unauthorized' error.">
+    **Cause:** The token may have expired or belongs to a user without sufficient permissions.  
+    **Solution:**
+    - Generate a new PAT and make sure it’s associated with an account that has access to the target project.  
+    - Reconnect the integration from the ProgramGenie dashboard.
+  </Accordion>
+
+  <Accordion title="Artefacts are not appearing in GitLab after syncing.">
+    **Cause:** Incorrect Project ID or missing permissions.  
+    **Solution:**
+    - Verify the Project ID entered in Genie matches your GitLab project’s numeric ID.  
+    - Check the PAT’s scopes and confirm it has issue creation rights.
+  </Accordion>
+
+  <Accordion title="Changes in Genie aren’t showing up in GitLab.">
+    **Cause:** The sync service paused or the PAT expired.  
+    **Solution:**
+    - Click “Resync” in ProgramGenie.  
+    - Reconnect using a fresh PAT if necessary.  
+    - Check your token validity in GitLab → Access Tokens.
+  </Accordion>
+
+  <Accordion title="Labels or issue types look incorrect in GitLab.">
+    **Cause:** Mapping configuration mismatch.  
+    **Solution:**
+    - Review your mapping settings inside Genie’s GitLab connector.  
+    - Adjust how Genie artefacts correspond to GitLab issues or labels, then re-sync.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## FAQ (GitLab Connector)
+
+<AccordionGroup>
+  <Accordion title="Why does ProgramGenie need my GitLab Personal Access Token (PAT)?">
+    The PAT lets ProgramGenie securely interact with the GitLab API to create and manage issues without storing your password.
+  </Accordion>
+
+  <Accordion title="Can multiple users connect to the same GitLab project?">
+    Yes. Each user can create their own PAT and connect independently for better security and traceability.
+  </Accordion>
+
+  <Accordion title="What happens if my token expires or is revoked?">
+    ProgramGenie will stop syncing until you generate a new PAT and update it in the connector settings.
+  </Accordion>
+
+  <Accordion title="Does ProgramGenie overwrite existing GitLab issues?">
+    No. ProgramGenie only updates or syncs issues it has created; other issues remain untouched.
+  </Accordion>
+
+  <Accordion title="How often does ProgramGenie sync with GitLab?">
+    Syncing occurs automatically in near real-time whenever artefacts are generated or updated.  
+    You can also trigger a manual sync from the connector panel.
+  </Accordion>
+
+  <Accordion title="What GitLab permissions do I need?">
+    You need permission to create and manage issues within the target project.  
+    If you’re unsure, check with your GitLab administrator.
+  </Accordion>
+
+  <Accordion title="Can I disconnect or reconnect my GitLab account later?">
+    Yes. You can disconnect anytime in ProgramGenie settings and reconnect using a new token or a different project.
+  </Accordion>
+</AccordionGroup>
