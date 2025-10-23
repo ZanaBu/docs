@@ -31,7 +31,7 @@
           "group": "Core Features",
           "pages": [
             "features/collateral",
-            "features/documentGeneration",
+            "features/documentgeneration",
             "features/epics",
             "features/userstories",
             "features/subtasks",

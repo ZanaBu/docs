@@ -1,0 +1,38 @@
+---
+title: "Troubleshooting"
+description: "Quick solutions to common issues when using ProgramGenie and its integrations."
+---
+
+# Troubleshooting
+
+If something isn’t working as expected, use this section as your quick guide.  
+Below are the most common issues users encounter — and how to fix them.
+
+<AccordionGroup>
+  <Accordion title="❌ My project won’t sync with Jira">
+    Check your **Jira API token** — expired or mismatched tokens are the #1 cause.  
+    Go to Jira → Profile → Security → API Tokens → Regenerate Token, then reconnect.
+  </Accordion>
+
+  <Accordion title="📄 My document upload failed">
+    - Confirm file format: PDF, DOCX, TXT, or PNG are supported.  
+    - Ensure file size < 20MB.  
+    - Avoid special characters in filenames.
+  </Accordion>
+
+  <Accordion title="🧩 Genie isn’t generating stories or test cases">
+    Make sure you’ve uploaded at least one **structured input** (document, notes, or transcript).  
+    Genie needs business context before creating technical artefacts.
+  </Accordion>
+
+  <Accordion title="🔄 My updates in Genie aren’t appearing in Jira">
+    Click **Resync Project**. If still missing, check Jira permissions — your account must have write access to create/edit tickets.
+  </Accordion>
+
+  <Accordion title="🖼 Genie Vision misreads my screenshot">
+    Upload higher-resolution or annotated versions — labels, spacing, and color contrast improve detection.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>Still stuck? Go to **Settings → Support → Contact Genie Team**.  
+Responses are usually within 24 hours for premium accounts.</Tip>
