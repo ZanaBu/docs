@@ -43,7 +43,9 @@
         {
           "group": "Integrations",
           "pages": [
-            "integrations/welcome_integrations"
+            "integrations/welcome_integrations",
+            "integrations/jira",
+            "integrations/confluence"
           ]
         }
       ]
@@ -72,7 +74,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@program-genie.com"
       }
     ],
     "primary": {
