@@ -5,20 +5,29 @@ description: "Learn how to set up your first project, generate artefacts, and in
 
 ## Getting Started with ProgramGenie
 
-ProgramGenie is your AI-powered SDLC assistant that transforms raw project input — documents, designs, and discussions — into fully structured artefacts like project briefs, epics, user stories, and test cases.  
+ProgramGenie is your AI-powered SDLC assistant that transforms raw project input — documents, designs, and discussions — into fully structured artefacts like project briefs, epics, user stories, and test cases.
 
 It streamlines the entire software delivery process, integrating seamlessly with platforms like **Jira**, **Confluence**, **Bitbucket**, and **Zephyr**.
 
-![ProgramGenie](/images/images-integrations/connectors.svg)
+<img
+  src="/images/images-integrations/connectors.svg"
+  style={{ width:"62%",height:"auto" }}
+  alt="Diagram showing the architecture of the system"
+  className="mx-auto"
+/>
 
 ---
 
 ## How ProgramGenie Works
 
-ProgramGenie automates the discovery and documentation stages of your project.  
+ProgramGenie automates the discovery and documentation stages of your project.\
 Simply upload your collateral (documents, notes, or code), and Genie generates everything your team needs to move from **idea to implementation** — in minutes.
 
-![Genie Artefact Workflow](../assets/genie-workflow-diagram.png)
+<img
+  src="/images/geniestats.svg"
+  style={{ width:"100%",height:"auto" }}
+  alt="Diagram showing the architecture of the system"
+/>
 
 > 💡 **Tip:** ProgramGenie doesn’t replace your tools — it connects them. Once set up, you can continue working in Jira, Confluence, or Bitbucket, while Genie keeps everything in sync automatically.
 
@@ -29,14 +38,24 @@ Simply upload your collateral (documents, notes, or code), and Genie generates e
 Follow these steps to create your first project and start generating artefacts.
 
 <AccordionGroup>
-
   <Accordion title="Create Your First Project">
     <Steps>
       <Step title="Open the Projects screen">
-        From the left sidebar, go to **Projects** and click **+ New Project**.
+        From the left sidebar, go to **Projects** and click **\+ New Project**.
+
+        <img
+          src="/images/DashboardOverview.svg"
+          style={{ width:"100%",height:"auto" }}
+          alt="Diagram showing the architecture of the system"
+        />
       </Step>
       <Step title="Add project details">
         Give your project a name, select a project lead, and write a short description.
+        <img
+          src="/images/addprojectdetails.png"
+          style={{ width:"100%",height:"auto" }}
+          alt="Diagram showing the architecture of the system"
+        />
       </Step>
       <Step title="Upload an image (optional)">
         You can add a project logo or visual identifier.
@@ -45,13 +64,11 @@ Follow these steps to create your first project and start generating artefacts.
         Add your team members who should have access to this project.
       </Step>
       <Step title="Add connectors (optional)">
-        Link tools like **Jira**, **Confluence**, or **Bitbucket** now, or do it later via **Settings → Connectors**.
+        Link tools like **[Jira](/integrations/jira)**, **Confluence**, or **Bitbucket** now, or do it later via **Settings → Connectors**.
       </Step>
     </Steps>
-
     > 💡 **Tip:** You can add multiple connectors of the same type. ProgramGenie automatically detects existing projects and creates new ones when needed.
   </Accordion>
-
   <Accordion title="Upload Collateral">
     <Steps>
       <Step title="Go to the Collateral widget">
@@ -67,10 +84,8 @@ Follow these steps to create your first project and start generating artefacts.
         Once uploaded, your files appear in the list. Genie analyzes them automatically.
       </Step>
     </Steps>
-
     > ⚙️ **Note:** Uploaded collateral acts as the source of truth — Genie uses it to generate your structured artefacts.
   </Accordion>
-
   <Accordion title="Generate Artefacts">
     <Steps>
       <Step title="From Collateral to Project Brief">
@@ -86,33 +101,34 @@ Follow these steps to create your first project and start generating artefacts.
         In any Story, click **Generate → Test Cases** or **Generate → Subtasks**.
       </Step>
     </Steps>
-
     > 💡 **Tip:** Each artefact can be edited or regenerated. Genie uses previous outputs to maintain consistency and compliance across versions.
   </Accordion>
-
   <Accordion title="Export via Connectors">
     Export your artefacts to your preferred platforms for execution and collaboration.
 
     ### Jira
+
     - Export **Epics**, **Stories**, and **Subtasks** directly from Genie.
     - Full traceability between requirements and tests.
     - Auto-sync ensures updates are reflected in Jira instantly.
 
     ### Confluence
+
     - Export **Project Briefs** or documentation pages into Confluence.
     - Maintain project history and team collaboration.
 
     ### Zephyr
+
     - Export **Test Cases** into Zephyr for structured QA management.
     - ⚠️ **Pre-requisite:** Related **Epics** and **Stories** must already be exported to Jira.
 
     ### Bitbucket
+
     - View and summarize repositories directly.
     - Generate artefacts such as **Briefs** or **Epics** from code repositories.
 
     > 💡 **Tip:** Use the **Export** icon next to each artefact type, or the **Export All** button from your dashboard for batch operations.
   </Accordion>
-
   <Accordion title="Work with Repositories">
     <Steps>
       <Step title="Open the Repositories widget">
@@ -128,10 +144,8 @@ Follow these steps to create your first project and start generating artefacts.
         Click **Generate** to create new artefacts — like Project Briefs or Epics — based on repository content.
       </Step>
     </Steps>
-
     > 💡 **Tip:** Genie can analyze your code to create structured documentation automatically, accelerating onboarding and audits.
   </Accordion>
-
   <Accordion title="Use Genie Vision">
     Genie Vision is a browser extension that lets you capture and analyze any webpage in real time.
 
@@ -146,10 +160,8 @@ Follow these steps to create your first project and start generating artefacts.
         Open **Genie Chat** and ask context-based questions about the current page, such as “Summarize this article” or “Generate test cases from this documentation.”
       </Step>
     </Steps>
-
     > 💡 **Tip:** Combine Genie Vision with **Connectors** for end-to-end automation — from discovery to documentation.
   </Accordion>
-
   <Accordion title="Manage Access & Tokens">
     <Steps>
       <Step title="Open Settings → Identity">
@@ -165,20 +177,18 @@ Follow these steps to create your first project and start generating artefacts.
         Manage security by setting expiry dates or revoking access as needed.
       </Step>
     </Steps>
-
     > 🔐 **Important:** Tokens are user-specific — never share them. If a token expires, integrations like Jira or Confluence will pause until renewed.
   </Accordion>
-
 </AccordionGroup>
 
 ---
 
 ## Next Steps
 
-✅ Configure your connectors  
-✅ Upload your collateral  
-✅ Generate and export artefacts  
-✅ Collaborate with your team  
+✅ Configure your connectors\
+✅ Upload your collateral\
+✅ Generate and export artefacts\
+✅ Collaborate with your team
 
 You’re now ready to automate your SDLC with **ProgramGenie** — faster, better, and fully compliant.
 
