@@ -82,10 +82,14 @@
       ]
     },{
       "tab": "Glossary",
-      "pages": [
-            "glossary.mdx"
+      "groups": [
+        {
+          "pages": [
+            "Glossary.mdx"
           ]
-      }
+        }
+      ]
+    }
   ],
     
   "global": {
