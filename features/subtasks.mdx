@@ -1,0 +1,128 @@
+---
+title: "Subtasks"
+---
+Once your **User Stories** define what needs to be built, **Subtasks** define how it gets done.  
+They represent the smallest actionable units within ProgramGenie’s hierarchy — concrete steps that developers, testers, or designers can pick up and complete.
+
+Genie automatically creates and links subtasks under each user story, breaking down complex work into manageable pieces.  
+This helps teams plan better, execute faster, and maintain visibility across all delivery stages.
+
+<Tip>Subtasks bring the big picture down to the ground — ensuring every task, no matter how small, contributes to the larger outcome.</Tip>
+
+---
+
+## Why Subtasks Matter
+
+In large projects, user stories can quickly become too broad for day-to-day tracking.  
+Subtasks solve that by dividing effort clearly across people and teams.
+
+**Key benefits:**
+- **Granularity:** Translate user stories into specific, actionable work items.  
+- **Accountability:** Assign tasks directly to team members.  
+- **Traceability:** Every subtask inherits context from its parent story and Epic.  
+- **Clarity:** Keeps sprint boards organized and focused on tangible progress.  
+- **Automation:** Genie generates subtasks automatically based on dependencies and test coverage.
+
+---
+
+## From Story to Subtask
+
+Here’s how Genie breaks down a user story into detailed subtasks:
+
+<Steps>
+  <Step title="1. Identify Work Units">
+    Genie scans each user story to identify distinct technical actions or deliverables.
+  </Step>
+  <Step title="2. Generate Subtasks Automatically">
+    Each action becomes a structured subtask, complete with title, description, and linkage to the parent story.
+  </Step>
+  <Step title="3. Assign and Sync">
+    Once generated, subtasks can be assigned to team members and automatically synced to Jira or Azure DevOps for execution.
+  </Step>
+  <Step title="4. Track Progress">
+    Subtasks update in real time, rolling up progress to their parent story for accurate reporting.
+  </Step>
+</Steps>
+
+---
+
+## Subtask Structure Example
+
+| **Field** | **Description** | **Example** |
+|------------|----------------|--------------|
+| **Title** | The task to perform | *Implement login API endpoint* |
+| **Parent Story** | The related user story | *As a user, I want to log in securely...* |
+| **Description** | Short explanation of the action | *Develop the authentication endpoint using OAuth2.* |
+| **Assignee** | The team member responsible | *Backend Developer* |
+| **Dependencies** | Linked items or blockers | *Database schema migration* |
+| **Status** | Tracks progress | *To Do / In Progress / Done* |
+
+---
+
+## Example Output
+
+Here’s an example of subtasks generated for a user story within a banking application:
+
+<Tip> 
+User Story: As a user, I want to transfer funds between accounts so that I can manage my finances.
+Generated Subtasks:
+- Design transfer flow API (Backend)
+- Create transaction validation rules (Backend)
+- Implement transfer form (Frontend)
+- Add input validation for amount field (Frontend)
+- Write test case: Verify successful transfer (QA)
+</Tip>
+
+Each subtask remains fully linked to its parent story and Epic, ensuring that the chain of traceability — from business goal to technical action — is never broken.
+
+---
+
+## Best Practices
+
+- Keep subtasks small and specific — ideally completable within a day or two.  
+- Assign subtasks to owners early to avoid delivery gaps.  
+- Use consistent naming (e.g., “Implement,” “Create,” “Write test for”).  
+- Regularly review and clean up redundant or duplicate subtasks.  
+- Track progress through the board view for full transparency.  
+
+<Tip>Think of subtasks as micro-commitments — clear, achievable pieces of progress that together build momentum.</Tip>
+
+---
+
+## Example Use Case
+
+A **software house** receives a client request for a payment gateway module.  
+Genie generates stories and test cases automatically, then breaks each story into actionable subtasks for backend, frontend, and QA teams.  
+When synced to Jira, every developer instantly sees their assigned items — already categorized and linked to the broader project scope.
+
+---
+
+## Related Features
+
+- [User Stories →](/features/userstories)  
+- [Test Cases →](/features/testcases)  
+- [Board (Artefacts View) →](/features/boardartefacts)
+
+---
+
+## FAQ
+
+<AccordionGroup>
+
+  <Accordion title="Can I edit or add subtasks manually?">
+    Yes. You can create, modify, or delete subtasks at any time. Manual changes stay linked to the parent story automatically.
+  </Accordion>
+
+  <Accordion title="Does Genie assign subtasks to team members automatically?">
+    Genie can suggest assignees based on team configuration, but final assignment is always user-controlled.
+  </Accordion>
+
+  <Accordion title="How does progress roll up to user stories?">
+    Each subtask contributes to the parent story’s completion percentage, visible in the Board and Reports views.
+  </Accordion>
+
+  <Accordion title="Can subtasks sync with Jira?">
+    Absolutely. When you publish a project, all subtasks appear under their corresponding Jira stories — complete with hierarchy and status tracking.
+  </Accordion>
+
+</AccordionGroup>

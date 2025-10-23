@@ -1,86 +1,113 @@
 ---
 title: "Epics"
-description: "Start building awesome documentation in minutes"
-icon: "ruler-horizontal"
+---
+Every great project starts with a big picture — the “what” before the “how.”  
+**Epics** in ProgramGenie give that picture structure.
+
+When Genie analyzes your input, it automatically groups related features, functions, and user goals into Epics.  
+Each Epic becomes a logical container that connects **user stories**, **subtasks**, and **test cases** — turning complex requirements into an organized, traceable hierarchy.
+
+<Tip>Epics help everyone speak the same language — business teams, developers, and QA all see the same structure and intent.</Tip>
+
 ---
 
-The navigation menu is the list of links on every website.
+## Why It Matters
 
-You will likely update `docs.json` every time you add a new page. Pages do not show up automatically.
+Epics bridge the gap between *strategy* and *execution*.  
+They let stakeholders visualize the full scope of delivery, while helping teams plan and prioritize efficiently.
 
-## Navigation syntax
+**Key advantages:**
+- **Structure and clarity:** Group related work under clear, named Epics.  
+- **Traceability:** Each Epic links directly to its originating collateral and generated stories.  
+- **Planning readiness:** Perfect for sprint planning, backlog refinement, and roadmap visualization.  
+- **Progress tracking:** Managers can monitor completion rates at the Epic level.  
+- **Scalability:** As projects grow, new features slot naturally into existing Epics.
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
+---
 
-<CodeGroup>
+## How It Works
 
-```json Regular Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": ["quickstart"]
-        }
-      ]
-    }
-  ]
-}
-```
+<Steps>
+  <Step title="1. Generation from Collateral">
+    Genie analyzes all project inputs and automatically detects themes, functions, and business objectives — each one forming the basis for a potential Epic.
+  </Step>
+  <Step title="2. Epic Creation">
+    Using these insights, Genie creates Epics with descriptive titles and summaries.  
+    Each Epic includes links to the user stories and test cases that belong to it.
+  </Step>
+  <Step title="3. Review and Adjust">
+    You can rename, merge, or split Epics directly in Genie. Adjust descriptions, add acceptance criteria, or define business value before syncing with Jira or other tools.
+  </Step>
+  <Step title="4. Sync and Manage">
+    Once finalized, Epics sync automatically to your chosen platform (e.g., Jira). Teams can then plan sprints, track progress, and report directly against them.
+  </Step>
+</Steps>
 
+---
 
-```json Nested Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": [
-            "quickstart",
-            {
-              "group": "Nested Reference Pages",
-              "pages": ["nested-reference-page"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+## Epic Structure Example
 
-</CodeGroup>
+| **Section** | **Description** | **Example** |
+|--------------|----------------|--------------|
+| **Epic Title** | Defines the main theme or goal. | *User Authentication & Access Management* |
+| **Summary** | A short, outcome-focused description. | *Enable users to register, log in, and recover passwords securely.* |
+| **Business Value** | The “why” behind the Epic. | *Improves user retention and supports compliance.* |
+| **Linked Stories** | Automatically generated, traceable requirements. | *Login Flow, Password Reset, MFA Setup* |
+| **Linked Test Cases** | QA artefacts derived from each story. | *Verify login flow with valid/invalid credentials.* |
 
-## Folders
+<Tip>Epics are living structures — update them anytime as Genie regenerates stories or scope evolves.</Tip>
 
-Simply put your MDX files in folders and update the paths in `docs.json`.
+---
 
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+## Best Practices
 
-<Warning>
-  You cannot use `api` for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level `api` folder for internal server calls. A folder name such as `api-reference` would be accepted.
-</Warning>
+> - Treat each Epic as a business outcome, not just a technical module.  
+> - Keep Epic descriptions focused on *value* rather than implementation.  
+> - Merge small, overlapping Epics to avoid redundancy.  
+> - Use consistent naming conventions (e.g., “Payment Gateway Integration”).  
+> - Review links between stories and Epics regularly for traceability.
 
-```json Navigation With Folder
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Group Name",
-          "pages": ["your-folder/your-page"]
-        }
-      ]
-    }
-  ]
-}
-```
+---
 
-## Hidden pages
+## Example Use Case
 
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+A **telecom provider** uploads discovery notes and requirement documents for a self-care portal.  
+Genie automatically identifies four main Epics:  
+**User Management, Billing & Payments, Support Chat, and Usage Analytics.**
+
+Each Epic contains a set of **user stories** and **test cases**, ready for export to Jira.  
+The delivery team now has a structured backlog aligned with client priorities — built in minutes.
+
+---
+
+## Related Features
+
+Explore the next levels of the structure:
+
+- [User Stories →](/features/userstories)  
+- [Subtasks →](/features/subtasks)  
+- [Test Cases →](/features/testcases)
+
+---
+
+## FAQ
+
+<AccordionGroup>
+
+  <Accordion title="Can I create or edit Epics manually?">
+    Yes. While Genie auto-generates Epics, you can also create them manually, edit names, or merge multiple Epics from the UI.
+  </Accordion>
+
+  <Accordion title="Does Genie follow any standard naming convention for Epics?">
+    By default, Genie uses concise, functional names (e.g., “Payments Module” or “User Authentication”). You can customize naming rules in your organization settings.
+  </Accordion>
+
+  <Accordion title="How are Epics connected to user stories and test cases?">
+    Each Epic serves as a parent entity linking all related artefacts. Changes in stories or test cases automatically propagate to the corresponding Epic.
+  </Accordion>
+
+  <Accordion title="Can I export Epics to Jira or other tools?">
+    Yes. Epics sync automatically to your connected platform (e.g., Jira, Azure DevOps), preserving hierarchy and traceability.
+  </Accordion>
+
+</AccordionGroup>

@@ -1,35 +1,107 @@
 ---
 title: "Collateral"
-description: "Display inline code and code blocks"
-icon: "code"
 ---
 
-## Inline code
+Every project begins with a story — and that story usually lives in a dozen different places.  
+Emails, PDFs, meeting notes, design mockups, chat logs… scattered across tools and people.  
+**Collateral** is where ProgramGenie brings all of that together.  
 
-To denote a `word` or `phrase` as code, enclose it in backticks (\`).
+It’s your project’s single source of truth — a structured space where you can upload, link, or write anything that helps Genie understand what you’re building.  
+Once your collateral is in place, Genie uses it as the foundation for generating clear, traceable artefacts like briefs, user stories, test cases, and wireframes.
 
-## Code blocks
+<Tip>Think of Collateral as your project’s “memory” — every idea, document, and visual cue stored in one place, ready to power AI-driven discovery and documentation.</Tip>
 
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+---
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
+## Why It Matters
 
-```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+Collaboration starts with clarity, and clarity starts with organized information.  
+Collateral ensures that your project has all the context it needs — in one secure, searchable place — before any AI generation begins.
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-````
+**Key benefits:**
+- **Centralized knowledge:** All your materials, in one structured workspace.  
+- **Multi-format support:** Upload text, PDFs, images, videos, or URLs.  
+- **AI-ready context:** Genie uses every input to improve artefact accuracy and completeness.  
+- **Full traceability:** Every generated artefact links back to its source material.  
+- **Team collaboration:** Multiple users can add, review, or annotate collateral simultaneously.
+
+---
+
+## How It Works
+
+<Steps>
+  <Step title="1. Upload or Link Sources">
+    Add project materials via drag-and-drop or by linking public URLs. Genie supports documents, screenshots, videos, or plain text.
+  </Step>
+  <Step title="2. Review and Tag Content">
+    Once uploaded, preview your materials. You can group or tag them to help Genie understand their purpose (e.g., design, requirements, notes).
+  </Step>
+  <Step title="3. Generate Artefacts">
+    When you’re ready, initiate generation. Genie analyzes all uploaded collateral and uses it to produce project briefs, epics, user stories, test cases, and more — all grounded in your real content.
+  </Step>
+</Steps>
+
+> Genie doesn’t just *store* files — it understands them.  
+> The richer your collateral, the smarter and more complete your generated artefacts will be.
+
+---
+
+## Supported Input Types
+
+| **Type** | **Description** | **Examples** |
+|-----------|----------------|---------------|
+| **Documents** | Upload text, Word, or PDF files | Business requirements, project briefs, RFPs |
+| **Images** | Add UI sketches, diagrams, or screenshots | Whiteboard photos, design drafts |
+| **Videos** | Upload or link short videos | Walkthroughs, recorded demos |
+| **URLs** | Add links from your internal or public sites | Confluence pages, SharePoint, Google Docs |
+| **Plain Text** | Paste or write directly | Meeting notes, chat summaries |
+
+---
+
+## Best Practices
+
+> - Upload as much relevant context as possible — Genie improves with more detail.  
+> - Keep files named consistently (e.g., “Payment Flow – Design.pdf”).  
+> - Combine visual and written sources for stronger understanding.  
+> - Review collateral regularly to remove outdated inputs.  
+> - Tag collateral by category for faster reuse across projects.
+
+<Tip>Good collateral means better generation. The more you give Genie to work with, the closer your generated artefacts will match your real-world needs.</Tip>
+
+---
+
+## Example Use Case
+
+A fintech company uploads their initial **client proposal**, **two UI sketches**, and **meeting notes** from discovery.  
+Within minutes, Genie processes this collateral and produces a **complete project brief**, **epics**, and **test cases** — each one traceable back to the original files.  
+The entire discovery phase that would normally take two weeks is now completed in under an hour.
+
+---
+
+## Related Features
+
+Continue your journey through the artefact lifecycle:
+
+- [Document Generation →](/features/document-generation)  
+- [Repositories →](/features/repositories)  
+- [Genie Chat →](/features/genie-chat)
+
+---
+
+## FAQ
+
+<AccordionGroup>
+
+  <Accordion title="Can I update or delete collateral after generation?">
+    Yes. You can add, remove, or replace collateral at any time. Genie will incorporate updates into future generations automatically.
+  </Accordion>
+
+  <Accordion title="Are uploaded files secure?">
+    Absolutely. All collateral is encrypted in transit and at rest, and only accessible to users with project-level permissions.
+  </Accordion>
+
+  <Accordion title="Does Genie support private URLs or cloud drives?">
+    Currently, Genie supports public or tokenized URLs. Private connectors for systems like Google Drive or SharePoint are part of the Enterprise roadmap.
+  </Accordion>
+
+</AccordionGroup>

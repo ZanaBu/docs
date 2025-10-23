@@ -1,0 +1,135 @@
+---
+title: "Test Cases"
+---
+Every requirement deserves proof that it works as intended.  
+**Test Cases** in ProgramGenie provide that proof — automatically.  
+
+From the moment user stories and requirements are generated, Genie builds a complete suite of test cases aligned with each story’s acceptance criteria.  
+These cases are written in **industry-standard formats** like Gherkin, traceable across artefacts, and instantly exportable to tools like **Zephyr**, **Jira**, or **Azure DevOps**.
+
+<Tip>Testing shouldn’t start after development — with Genie, it starts the moment your stories are written.</Tip>
+
+---
+
+## Why Test Cases Matter
+
+Testing is often where project delays and quality issues surface. Manual creation of test cases is slow, repetitive, and error-prone.  
+Genie automates this process — delivering complete, structured, and traceable validation coverage instantly.
+
+**Key benefits:**
+- **Speed:** Auto-generate test cases in seconds instead of weeks.  
+- **Coverage:** Every story gets linked validation steps from day one.  
+- **Traceability:** Test cases connect directly to user stories and Epics.  
+- **Reusability:** Standardized test case templates can be reused across projects.  
+- **Compliance:** Creates auditable proof of requirement validation.
+
+---
+
+## How It Works
+
+<Steps>
+  <Step title="1. Analyse Requirements">
+    Genie reviews your collateral, user stories, and acceptance criteria to extract validation logic and expected behaviors.
+  </Step>
+  <Step title="2. Generate Test Cases">
+    Each requirement is paired with one or more test cases, written in natural language or Gherkin format, ready for manual or automated execution.
+  </Step>
+  <Step title="3. Link and Sync">
+    Generated test cases are automatically linked to the relevant user stories and Epics. You can sync them directly to Jira, Zephyr, or other integrated tools.
+  </Step>
+  <Step title="4. Validate and Iterate">
+    Review, refine, or regenerate test cases as requirements evolve. Genie ensures all updates propagate automatically across linked artefacts.
+  </Step>
+</Steps>
+
+---
+
+## Test Case Structure Example
+
+| **Field** | **Description** | **Example** |
+|------------|----------------|--------------|
+| **ID** | Unique identifier assigned by Genie | *TC-101* |
+| **Linked Story** | The user story this case validates | *As a user, I want to log in securely…* |
+| **Title** | Short, descriptive name of the test | *Verify login with valid credentials* |
+| **Preconditions** | Setup or requirements before execution | *User account must exist and be active* |
+| **Test Steps** | Actions to perform | *Enter username → Enter password → Click Login* |
+| **Expected Result** | What should happen if functionality works | *User is redirected to the dashboard* |
+| **Type** | Manual / Automated | *Automated* |
+| **Framework** | Test framework or format | *Gherkin / Cucumber* |
+
+---
+
+## Example Output (Gherkin Format)
+
+Feature: Login Functionality
+
+  Scenario: Successful login with valid credentials
+  - Given a registered user with a valid account
+  - When the user enters a correct username and password
+  - And clicks the "Login" button
+  - Then the user is redirected to their dashboard
+  - And a welcome message is displayed
+
+Each test case is automatically tied back to its originating story, collateral, and Epic — ensuring full traceability and eliminating gaps in validation.
+
+---
+
+## Why QA Teams Love It
+
+- **Eliminates duplication:** No more copying requirements into test tools.  
+- **Ensures alignment:** Every test case reflects the latest version of the story.  
+- **Improves efficiency:** QA can begin work earlier, parallel to development.  
+- **Enables reuse:** Standardized test logic across similar systems or modules.  
+- **Supports automation:** Outputs are compatible with automated testing frameworks.  
+
+<Note>By linking requirements, stories, and test cases, Genie transforms testing from a reactive activity into a proactive quality assurance process.</Note>
+
+---
+
+## Best Practices
+
+- Always review generated acceptance criteria before running test generation.  
+- Group test cases logically (by feature or Epic) to simplify maintenance.  
+- Use Genie’s integrations to push tests into your preferred QA platform.  
+- Regenerate cases when user stories change — updates cascade automatically.  
+- Track test coverage from within Genie or Jira to ensure 100% visibility.  
+
+<Tip>Think of Genie’s test cases as your first line of defense — preventing bugs, misalignment, and missed requirements before code is written.</Tip>
+
+
+---
+
+## Related Features
+
+- [User Stories →](/features/userstories)  
+- [Subtasks →](/features/subtasks)  
+- [Repositories →](/features/repositories)
+
+---
+
+## FAQ
+
+<AccordionGroup>
+
+  <Accordion title="Can I edit generated test cases manually?">
+    Yes. You can edit, add, or remove steps from any generated test case. Genie automatically maintains linkage and updates impacted artefacts.
+  </Accordion>
+
+  <Accordion title="Does Genie support automated testing frameworks?">
+    Absolutely. Genie can output Gherkin syntax compatible with Cucumber, Behave, and other BDD frameworks.
+  </Accordion>
+
+  <Accordion title="Can I group test cases by Epic or feature?">
+    Yes. Genie allows you to view and export test cases by Epic, feature, or sprint to streamline QA planning.
+  </Accordion>
+
+  <Accordion title="How does Genie handle updates to requirements?">
+    When a user story or requirement changes, Genie automatically regenerates the associated test cases and updates linked documentation.
+  </Accordion>
+
+  <Accordion title="Are test cases traceable to compliance artefacts?">
+    Yes. Every test case retains a reference back to its original requirement or regulation — essential for audit and governance needs.
+  </Accordion>
+
+</AccordionGroup>
+

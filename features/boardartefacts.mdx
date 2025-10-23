@@ -1,0 +1,129 @@
+---
+title: "Board (Artefacts View)"
+---
+
+Once Genie generates your artefacts — from Epics to Test Cases — you need a place to see it all come together.  
+That’s where the **Board (Artefacts View)** comes in.
+
+The Artefacts Board is a dynamic workspace that visualizes your entire project in a clean, **Kanban-style interface**.  
+It’s not just a list — it’s a living map of your software delivery lifecycle.
+
+<Tip>The Board gives you a single, real-time view of progress, dependencies, and quality across all artefacts — from idea to release.</Tip>
+
+---
+
+## Why the Board Matters
+
+Visibility is everything.  
+Even the most automated documentation needs a way to be tracked, reviewed, and updated collaboratively.  
+The Board transforms Genie’s generated artefacts into a **manageable, interactive workflow**.
+
+**Key benefits:**
+- **Unified View:** See all your Epics, User Stories, Subtasks, and Test Cases in one place.  
+- **Real-Time Sync:** Any change in Genie (or connected tools like Jira) is reflected instantly.  
+- **Traceability:** Click any card to view linked stories, requirements, or test cases.  
+- **Collaboration:** Assign tasks, review progress, or trigger regenerations directly from the board.  
+- **Governance:** Perfect for sprint reviews, QA tracking, and compliance validation.
+
+---
+
+## Board Layout Overview
+
+| **Column** | **Purpose** | **Example Cards** |
+|-------------|-------------|--------------------|
+| **Epics** | High-level project goals and deliverables. | *User Authentication, Billing Integration* |
+| **User Stories** | Individual functional requirements. | *As a user, I want to log in securely…* |
+| **Subtasks** | Detailed work items under each story. | *Implement OAuth2 token validation* |
+| **Test Cases** | Linked validation items ensuring coverage. | *Verify login with invalid password* |
+
+<Note>Each artefact card includes metadata such as status, assignee, creation date, and cross-links to ensure full traceability.</Note>
+
+---
+
+## How It Works
+
+<Steps>
+  <Step title="1. Automatic Population">
+    When Genie generates project artefacts, they automatically appear on the Board, categorized by type (Epic, Story, Subtask, Test Case).
+  </Step>
+  <Step title="2. Interactive Controls">
+    Drag and drop items across columns, assign owners, or update statuses directly within the interface.
+  </Step>
+  <Step title="3. Cross-Link Navigation">
+    Clicking any artefact opens its details — including related items, test coverage, and change history.
+  </Step>
+  <Step title="4. Real-Time Sync">
+    The Board stays synced with external tools like Jira and Confluence, ensuring alignment across platforms.
+  </Step>
+</Steps>
+
+---
+
+## Example Workflow
+
+A **banking team** uses Genie to generate requirements and test cases for a new mobile app module.  
+As artefacts are created, they appear on the Board automatically:
+
+- Epics define major milestones: *Onboarding, Transactions, Notifications*  
+- User stories fill each Epic: *As a user, I want to transfer funds securely.*  
+- Subtasks organize technical work for each story.  
+- Test cases track validation status in real time.  
+
+During sprint planning, the manager filters by Epic to review progress, checks test completion rates, and exports a board summary directly to stakeholders.
+
+---
+
+## Best Practices
+
+> - Review your Board daily for progress and blockers.  
+> - Use filtering to focus on key Epics or sprints.  
+> - Keep artefact naming consistent across all levels.  
+> - Leverage color codes or tags to differentiate artefact types.  
+> - Archive completed Epics to maintain focus on active work.
+
+<Tip>The Board isn’t just for visibility — it’s a control center. Every artefact remains live, traceable, and regenerable directly from this view.</Tip>
+
+---
+
+## Example Use Case
+
+A **telecom operator** manages 200+ artefacts for a customer portal project.  
+Using the Board, they can instantly view which features are complete, which are under QA, and which need rework — all synchronized with Jira.  
+The QA team filters by “Failed Tests” while developers see open subtasks per sprint, creating a single source of truth for delivery.
+
+---
+
+## Related Features
+
+- [Epics →](/features/epics)  
+- [User Stories →](/features/userstories)  
+- [Subtasks →](/features/subtasks)  
+- [Test Cases →](/features/testcases)
+
+---
+
+## FAQ
+
+<AccordionGroup>
+
+  <Accordion title="Can I edit artefacts directly on the Board?">
+    Yes. You can update statuses, change assignees, and edit details without leaving the Board — changes automatically sync to connected tools.
+  </Accordion>
+
+  <Accordion title="Can I filter artefacts by type or owner?">
+    Absolutely. Use built-in filters to view specific artefact types, sprints, or assigned team members.
+  </Accordion>
+
+  <Accordion title="Does the Board sync with Jira in real time?">
+    Yes. All updates flow bi-directionally — actions taken in Jira reflect in Genie’s Board instantly, and vice versa.
+  </Accordion>
+
+  <Accordion title="Can I export the Board for reports or presentations?">
+    Yes. You can export a snapshot of your Board to PDF or CSV for sprint reports, client demos, or audits.
+  </Accordion>
+
+  <Accordion title="How are dependencies visualized?">
+    Each artefact card shows dependency indicators and quick links to related stories, tasks, or test cases.
+  </Accordion>
+
+</AccordionGroup>

@@ -32,7 +32,15 @@
           "pages": [
             "features/collateral",
             "features/documentGeneration",
-            "features/epics"
+            "features/epics",
+            "features/userstories",
+            "features/subtasks",
+            "features/testcases",
+            "features/wireframes",
+            "features/repositories",
+            "features/boardartefacts",
+            "features/geniechat",
+            "features/genievision"
           ]
         }
       ]
